@@ -4,8 +4,23 @@ Rails.application.routes.draw do
   end
   namespace :api do
     namespace :v1 do
-      resources :internal_users ,only:[:create,:index,:update,:destroy]
-      resources :donors
+      resources :internal_users ,only:[:create,:index,:update,:destroy,:show]
+      resources :subscriptions,only:[:index,:update]
+      resources :donors,only:[:create,:index,:update] do
+        member do
+          put :subscription
+          put :deactivate
+        end
+        collection do 
+          get :find
+        end
+        resources :members,only:[:create,:index,:destroy] do
+          member do
+            put :promote_head
+            put :promote_donor
+          end
+      end
+    end
       resources :projects
       resources :payments
       resources :representatives

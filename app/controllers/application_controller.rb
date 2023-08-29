@@ -3,11 +3,11 @@ class ApplicationController < ActionController::API
 
     private
     def current_user
-        return unless doorkeeper_token
+      return unless doorkeeper_token
       @current_user ||= User.find_by(id: doorkeeper_token[:resource_owner_id])
     end
     def authorize(scope)
-      current_user
+      self.current_user
       @user=User.find(@current_user.id)
       if(@user.admin?)
         return

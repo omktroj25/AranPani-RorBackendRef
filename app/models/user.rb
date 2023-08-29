@@ -1,12 +1,12 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :permissions,autosave:true
+  has_many :permissions,dependent: :destroy
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum role: [:admin,:user]
-  validates :email, format: URI::MailTo::EMAIL_REGEXP
-  accepts_nested_attributes_for :permissions
+  validates :email, uniqueness:true,format: URI::MailTo::EMAIL_REGEXP,on: :create
+  accepts_nested_attributes_for :permissions,reject_if: :check_existing_scope
   def self.authenticate(email, password)
     user = User.find_for_authentication(email: email)
     user&.valid_password?(password) ? user : nil
@@ -26,5 +26,12 @@ class User < ApplicationRecord
   end
   def generate_token
     SecureRandom.hex(10)
+  end
+  def check_existing_scope(attribute)
+    lt=[]
+    for i in self.permissions
+      lt.push(i.scope)
+    end
+    lt.include?(attribute['scope'])
   end
 end
