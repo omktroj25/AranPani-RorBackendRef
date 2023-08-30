@@ -1,5 +1,5 @@
 FactoryBot.define do
-    factory :donor_users do
+    factory :donor_user do
         name {"Ranjith"}
          age {21}
          phonenumber {"892982128"}

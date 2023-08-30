@@ -11,8 +11,8 @@ class Api::V1::DonorsController < ApplicationController
         @sequence_generator.update(seq_no:seq+1)
         @donor.is_area_representative=false
         @donor.role=Donor.roles[:individual_donor]
-        p params[:subscription_id]
-        @donor.donor_subscription=DonorSubscription.new(subscription:Subscription.find(params[:subscription_id]),last_updated:false)
+        # p params[:subscription_id]
+        # @donor.donor_subscription=DonorSubscription.new(subscription:Subscription.find(params[:subscription_id]),last_updated:false)
         if @donor.save
             render json: @donor,status: :ok
         else
@@ -58,9 +58,32 @@ class Api::V1::DonorsController < ApplicationController
         @donor_user=DonorUser.find_by(phonenumber:params[:phonenumber])
         render json: @donor_user.donor,status: :ok
     end
+    def promote_rep
+        @donor=Donor.find(params[:id])
+        if @donor.group_head?
+            @donor.area_representative_id=@donor.id
+            @donor.is_area_representative=true
+            @family=@donor.family
+            lt=[]
+            for i in @family.donors
+                i.area_representative=@donor
+                lt.push(i)
+            end
+            @family.donors=lt
+            @family.save
+        else
+            @donor.area_representative_id=@donor.id
+            @donor.is_area_representative=true
+        end
+        if @donor.save
+            render json: @donor,status: :ok
+        else
+            render json: @donor.errors,status: :unprocessable_entity
+        end
+    end
     private
     def donor_params
-        params.require(:donor).permit(:area_representative_id,:subscription_id,:status,donor_user_attributes:[:name,:age,:phonenumber,:email,:guardian_name,:country,:pincode,:address,:gender,:id_card,:id_card_value,:is_onboarded,:pan])
+        params.require(:donor).permit(:area_representative_id,:status,donor_user_attributes:[:name,:age,:phonenumber,:email,:guardian_name,:country,:pincode,:address,:gender,:id_card,:id_card_value,:is_onboarded,:pan],donor_subscription_attributes:[:subscription_id,:last_updated])
     end
     def update_donor_params
         params.require(:donor).permit(:id,:donor_reg_no,:role,:area_representative_id,:status,donor_user_attributes:[:id,:name,:age,:phonenumber,:email,:guardian_name,:country,:pincode,:address,:gender,:id_card,:id_card_value,:is_onboarded,:pan])

@@ -19,6 +19,6 @@ class Donor < ApplicationRecord
     has_many :project_subscribers
     has_many :projects,through: :project_subscribers
 
-    accepts_nested_attributes_for :donor_user
+    accepts_nested_attributes_for :donor_user,:donor_subscription
     
 end

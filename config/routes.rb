@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         member do
           put :subscription
           put :deactivate
+          put :promote_rep
         end
         collection do 
           get :find
