@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_29_132158) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_30_055810) do
   create_table "activities", force: :cascade do |t|
     t.integer "project_id", null: false
     t.string "description"
@@ -87,13 +87,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_132158) do
   create_table "families", force: :cascade do |t|
     t.datetime "last_paid"
     t.integer "count"
-    t.integer "subscriptions_id"
+    t.integer "subscription_id"
     t.integer "head_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "last_updated"
     t.index ["head_id"], name: "index_families_on_head_id"
-    t.index ["subscriptions_id"], name: "index_families_on_subscriptions_id"
+    t.index ["subscription_id"], name: "index_families_on_subscription_id"
   end
 
   create_table "family_histories", force: :cascade do |t|
@@ -246,7 +246,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_29_132158) do
   add_foreign_key "donors_family_histories", "donors"
   add_foreign_key "donors_family_histories", "family_histories"
   add_foreign_key "families", "donors", column: "head_id"
-  add_foreign_key "families", "subscriptions", column: "subscriptions_id"
+  add_foreign_key "families", "subscriptions"
   add_foreign_key "family_histories", "donors"
   add_foreign_key "family_histories", "subscriptions"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"

@@ -3,7 +3,7 @@ class Api::V1::MembersController < ApplicationController
     def index
         @donor=Donor.find(params[:donor_id])
         if @donor.group_head?
-          render json: @donor.family.donors,status: :ok
+          render json: @donor.family,include:['donors'],status: :ok
         else
             render json:{message:"Donor is not a group head"},status: :unprocessable_entity
         end  
@@ -11,7 +11,7 @@ class Api::V1::MembersController < ApplicationController
     def create
         @group_head=Donor.find(params[:donor_id])
         if @group_head.individual_donor? && !@group_head.family_id.present?
-            @family=Family.new(subscriptions_id:@group_head.donor_subscription.subscription.id)
+            @family=Family.new(subscription_id:@group_head.donor_subscription.subscription.id)
             @group_head.role=Donor.roles[:group_head]
             @group_head.save
             @family.head=@group_head
@@ -43,13 +43,13 @@ class Api::V1::MembersController < ApplicationController
             @donor=Donor.new(donor_user:@donor_user,status:true,is_area_representative:false,role:Donor.roles[:group_member])
             @donor.donor_reg_no="DON"+@sequence_generator.seq_no.to_s
             @sequence_generator.update(seq_no:seq+1)
-            @donor.save!
+            @donor.save
             @family=Family.find(@group_head.family.id)
             @family.donors.push(@donor)
         end
         @family.last_updated=false
         if @family.save
-            render json: @family.donors,status: :ok
+            render json: @family,include:['donors.donor_user','head','subscription'],status: :ok
         else
             render json: @family.errors,status: :unprocessable_entity
         end
@@ -84,7 +84,6 @@ class Api::V1::MembersController < ApplicationController
             @past_group_head.role=Donor.roles[:group_member]
             @past_group_head.save
             @new_group_head.role=Donor.roles[:group_head]
-            @new_group_head.save
             @family=@new_group_head.family
             @family.head=@new_group_head
             @family.last_updated=false

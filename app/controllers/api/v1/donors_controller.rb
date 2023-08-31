@@ -30,20 +30,27 @@ class Api::V1::DonorsController < ApplicationController
     end
     def subscription
         @donor=Donor.find(params[:id])
-        if(@donor.family_id != null && @donor.group_head?)
-            @donor.family.subscription=Subscription.find(params[:subscription_id])
-            @donor.family.last_updated=false
-        elsif(@donor.subscription_id !=null && @donor.individual_donor?)
+        if(@donor.family_id != nil && @donor.group_head?)
+            @family=@donor.family
+            @family.subscription=Subscription.find(params[:subscription_id])
+            @family.last_updated=false
+            if @family.save
+                render json: @family,status: :ok
+            else
+                render json: @family.errors,status: :unprocessable_entity
+            end
+        elsif(@donor.donor_subscription !=nil && @donor.individual_donor?)
             @donor.donor_subscription.subscription=Subscription.find(params[:subscription_id])
             @donor.donor_subscription.last_updated=false
+            if @donor.save
+                render json: @donor,include:['donor_subscription.subscription'],status: :ok
+            else
+                render json: @donor.errors,status: :unprocessable_entity
+            end
         else
             render json: {status:"Update the subscription through your group head"},status: :unprocessable_entity
         end
-        if @donor.save
-            render json: @donor,status: :ok
-        else
-            render json: @donor.errors,status: :unprocessable_entity
-        end
+    
     end
     def deactivate
         @donor=Donor.find(params[:id])

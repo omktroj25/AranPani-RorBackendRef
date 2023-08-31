@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     end
       resources :projects
       resources :payments
-      resources :representatives
+      resources :representatives,only:[:index,:show,:update]
       resources :password ,only: [] do
         collection do
           post :forgot
