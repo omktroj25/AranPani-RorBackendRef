@@ -12,7 +12,7 @@ class Donor < ApplicationRecord
     has_many :donors_family_histories
     has_many :family_histories,through: :donors_family_histories
 # self-join
-    has_many :donators,class_name: 'Donor',foreign_key: :area_representative_id
+    has_many :donators,class_name: 'Donor',foreign_key: :area_representative_id,autosave:true
     belongs_to :area_representative,class_name: 'Donor', optional:true
 # Project subscribers
 

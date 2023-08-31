@@ -6,6 +6,8 @@ FactoryBot.define do
          email {"ranjithvel2001@gmail.com"}
          is_onboarded {true}
          pan {"SHJHJ88781"}
+         latitude {13.014767}
+         longitude {80.190670}
     end
   end
   

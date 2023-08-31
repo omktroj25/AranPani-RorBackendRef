@@ -11,6 +11,7 @@ Rails.application.routes.draw do
           put :subscription
           put :deactivate
           put :promote_rep
+          resources :payments,only:[:create,:update]
         end
         collection do 
           get :find
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
       end
     end
       resources :projects
-      resources :payments
+      # resources :payments
       resources :representatives,only:[:index,:show,:update]
       resources :password ,only: [] do
         collection do

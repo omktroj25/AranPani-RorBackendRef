@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_30_055810) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_31_074343) do
   create_table "activities", force: :cascade do |t|
     t.integer "project_id", null: false
     t.string "description"
@@ -57,6 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_055810) do
     t.integer "donor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["donor_id"], name: "index_donor_users_on_donor_id"
   end
 
@@ -147,7 +149,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_30_055810) do
   create_table "payments", force: :cascade do |t|
     t.integer "mode"
     t.boolean "is_one_time_payment"
-    t.integer "one_time_payment_amount"
+    t.integer "amount"
     t.datetime "payment_date"
     t.string "transaction_id"
     t.integer "donor_id"

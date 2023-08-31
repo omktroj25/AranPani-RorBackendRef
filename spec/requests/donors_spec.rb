@@ -148,6 +148,35 @@ RSpec.describe "Donors", type: :request do
       expect(response).to have_http_status(200)
       expect(JSON.parse(response.body)["status"]).to eq(false)
     end
+    describe "deactivates for area representatives" do
+      before(:each) do
+        donor1.is_area_representative=true
+        donor1.area_representative_id=donor1.id
+        donor1.save
+        donor2.area_representative_id=donor1.id
+        donor2.save
+      end
+    it "deactivates the area representative" do
+      put deactivate_api_v1_donor_path(donor1.id),headers:{"Authorization":"Bearer "+access_token.token},params:{"status":false}
+      expect(response).to have_http_status(200)
+      expect(JSON.parse(response.body)["status"]).to eq("no nearby area representatives found")
+    end
+    describe "creates new area rep" do
+      let!(:donor3) {create:donor,is_area_representative:true}
+    let!(:donor_user3) {create:donor_user,donor:donor3,phonenumber:"222222222",latitude:12.968144, longitude:80.234310}
+    before(:each) do
+      donor3.area_representative_id=donor3.id
+    donor3.save
+    end
+    it "deactivates area rep and assigns a new rep nearby location" do
+        put deactivate_api_v1_donor_path(donor1.id),headers:{"Authorization":"Bearer "+access_token.token},params:{"status":false}
+        expect(response).to have_http_status(200)
+        expect(JSON.parse(response.body)["status"]).to eq(false)
+        expect(Donor.find(donor2.id).area_representative_id).to eq(donor3.id)
+        expect(Donor.find(donor3.id).donators.length).to eq(3)
+    end
+    end
+  end
   end
   describe "PUT /promote_rep" do
     it "validates the promotion of donor to area_representative" do

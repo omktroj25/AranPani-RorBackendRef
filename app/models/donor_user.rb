@@ -4,4 +4,5 @@ class DonorUser < ApplicationRecord
     validates :name,presence:true
     has_one :image,as: :imageable
     belongs_to :donor
+    reverse_geocoded_by :latitude, :longitude
 end

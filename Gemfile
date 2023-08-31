@@ -52,4 +52,5 @@ gem 'doorkeeper', '~> 5.4.0'
 gem 'will_paginate', '~> 4.0'
 gem 'active_model_serializers', '~> 0.10.2'
 gem "paranoia", "~> 2.2"
+gem 'geocoder'
 

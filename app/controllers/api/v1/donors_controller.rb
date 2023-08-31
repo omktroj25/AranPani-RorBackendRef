@@ -55,6 +55,20 @@ class Api::V1::DonorsController < ApplicationController
     def deactivate
         @donor=Donor.find(params[:id])
         @donor.status=params[:status]
+        if @donor.is_area_representative
+            new_reps=DonorUser.joins(:donor).where(["is_area_representative = ? and donors.id != ?",true,"#{@donor.id}"]).near([@donor.donor_user.latitude,@donor.donor_user.longitude],50)
+            if(new_reps.length==0)
+                    render json: {status:"no nearby area representatives found"},status: :ok
+                    return
+            else
+                if(params[:area_representative_id].present?)
+                    @new_representative=Donor.find(params[:area_representative_id])
+                else
+                    @new_representative=new_reps[0].donor
+                end
+                @donor.donators.map {|i| i.area_representative=@new_representative}
+            end
+        end
         if @donor.save
             render json: @donor,status: :ok
         else
