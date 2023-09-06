@@ -6,13 +6,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :internal_users ,only:[:create,:index,:update,:destroy,:show]
       resources :subscriptions,only:[:index,:update]
-      resources :donors,only:[:create,:index,:update] do
+      resources :donors,only:[:create,:index,:update,:show] do
         member do
           put :subscription
           put :deactivate
           put :promote_rep
-          resources :payments,only:[:create,:update]
+          put :demote_rep
+          get :payments,to: 'donors#get_payments'
+          post :payments,to: 'donors#add_payment'
         end
+        put "payments/:id",to: 'donors#settle_payment'
         collection do 
           get :find
         end
@@ -23,8 +26,13 @@ Rails.application.routes.draw do
           end
       end
     end
-      resources :projects
-      # resources :payments
+      resources :projects,only:[:index,:create,:show,:update] do
+        member do
+          put :scrap
+          put :restore
+        end
+      end
+      resources :payments,only:[:index,:create,:show]
       resources :representatives,only:[:index,:show,:update]
       resources :password ,only: [] do
         collection do

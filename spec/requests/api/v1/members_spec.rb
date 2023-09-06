@@ -85,4 +85,15 @@ RSpec.describe "Api::V1::Members", type: :request do
       expect(Donor.find(donor1.id).family.donors.length).to eq(1)
     end
   end
+  describe "DELETE /destroy" do
+    it "Removes a group member from the family" do
+      donor2.donor_user.is_onboarded=false
+      donor2.save
+      delete api_v1_donor_member_path(donor1.id,donor2.id),headers:{"Authorization":"Bearer "+access_token.token}
+      expect(response).to have_http_status(200)
+      @response=JSON.parse(response.body)
+      expect(@response["status"]).to eq("success")
+      expect{Donor.find(donor2.id)}.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
 end

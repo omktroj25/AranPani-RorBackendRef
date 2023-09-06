@@ -40,7 +40,7 @@ class Api::V1::MembersController < ApplicationController
             @sequence_generator=SequenceGenerator.find_by(model:"donor")
             seq=@sequence_generator.seq_no
             @donor_user=DonorUser.new(phonenumber:params[:phonenumber],name:params[:name],is_onboarded:false)
-            @donor=Donor.new(donor_user:@donor_user,status:true,is_area_representative:false,role:Donor.roles[:group_member])
+            @donor=Donor.new(donor_user:@donor_user,status:true,is_area_representative:false,role:Donor.roles[:group_member],area_representative:@group_head.area_representative)
             @donor.donor_reg_no="DON"+@sequence_generator.seq_no.to_s
             @sequence_generator.update(seq_no:seq+1)
             @donor.save
@@ -56,7 +56,10 @@ class Api::V1::MembersController < ApplicationController
     end
     def destroy
         @donor=Donor.find(params[:id])
-        if @donor.group_member?
+        if @donor.group_member? && !@donor.donor_user.is_onboarded
+            @family=@donor.family
+            @family.last_updated=false
+            @family.save
             @donor.destroy
             render json:{status:"success"},status: :ok
         else

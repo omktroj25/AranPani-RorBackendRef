@@ -5,6 +5,10 @@ class Api::V1::DonorsController < ApplicationController
     end
     def create
         @donor=Donor.new(donor_params)
+        if !Subscription.find(@donor.donor_subscription.subscription.id).status
+            render json:{status:false,message:"Subscription was deactivated by the admin"},status: :ok
+            return
+        end
         @sequence_generator=SequenceGenerator.find_by(model:"donor")
         seq=@sequence_generator.seq_no
         @donor.donor_reg_no="DON"+@sequence_generator.seq_no.to_s
@@ -81,9 +85,13 @@ class Api::V1::DonorsController < ApplicationController
     end
     def promote_rep
         @donor=Donor.find(params[:id])
+        if @donor.group_member?
+            render json:{status:false,message:"Group member can't be promoted"},status: :ok
+            return
+        end
+        @donor.area_representative_id=@donor.id
+        @donor.is_area_representative=true
         if @donor.group_head?
-            @donor.area_representative_id=@donor.id
-            @donor.is_area_representative=true
             @family=@donor.family
             lt=[]
             for i in @family.donors
@@ -92,14 +100,100 @@ class Api::V1::DonorsController < ApplicationController
             end
             @family.donors=lt
             @family.save
-        else
-            @donor.area_representative_id=@donor.id
-            @donor.is_area_representative=true
         end
         if @donor.save
             render json: @donor,status: :ok
         else
             render json: @donor.errors,status: :unprocessable_entity
+        end
+    end
+    def show
+        @donor=Donor.find(params[:id])
+        render json: @donor,status: :ok
+    end
+    def get_payments
+        @donor=Donor.find(params[:id])
+        stats={"Financial donations"=>0}
+        stats["Total donations"]=@donor.payments.sum("amount")
+        json_response={"stats"=>stats,"payments"=>@donor.payments.map{|i| PaymentSerializer.new(i,scope:false)}}
+        render json: json_response,status: :ok
+    end
+    def add_payment
+        @donor=Donor.find(params[:id])
+        if !@donor.donor_user.is_onboarded
+            render json:{status:false,message:"Donor not yet onboarded"},status: :ok
+            return
+        elsif !@donor.status
+            render json:{status:false,message:"Deactivated donor"},status: :ok
+            return
+        elsif @donor.group_member?
+            render json:{status:false,message:"Donate through your group head"},status: :ok
+            return
+        end
+        if @donor.individual_donor?
+            if @donor.donor_subscription.last_updated
+                donor_subscription_histories=@donor.donor_subscription.donor_subscription_histories
+                if donor_subscription_histories.length==0
+                    @donor.donor_subscription.donor_subscription_histories.push(DonorSubscriptionHistory.new(subscription:@donor.donor_subscription.subscription,last_paid:Time.now))
+                end
+            else
+                @donor.donor_subscription.donor_subscription_histories.push(DonorSubscriptionHistory.new(subscription:@donor.donor_subscription.subscription,last_paid:Time.now))
+                @donor.donor_subscription.last_updated=true
+            end
+            @donor.donor_subscription.last_paid=Time.now
+            @donor.save!
+            @donor_subscription_history=@donor.donor_subscription.donor_subscription_histories.last
+            @donor_subscription_history.last_paid=Time.now
+            @payment=Payment.new(payment_params)
+            # @payment.payment_date=Time.now
+            @payment.donor=@donor
+            @payment.area_representative=@donor.area_representative
+            @donor_subscription_history.payments.push(@payment)
+            @donor_subscription_history.save
+        else
+            @family=@donor.family
+            if @family.last_updated
+                @family_history=@donor.family_histories.last
+            else
+                @family_history=FamilyHistory.new(head:@donor,count:@family.count,last_paid:Time.now,subscription:@family.subscription)
+                for i in @family.donors
+                    @family_history.donors.push(i)
+                end
+                @family.last_updated=true
+            end
+            @family.last_paid=Time.now
+            @family_history.last_paid=Time.now
+            @family.save
+            @payment=Payment.new(payment_params)
+            # @payment.payment_date=Time.now
+            @payment.donor=@donor
+            @payment.area_representative=@donor.area_representative
+            @family_history.payments.push(@payment)
+        end
+        render json:{status:"success"},status: :ok
+        
+    end
+    def demote_rep
+        @old_representative=Donor.find(params[:id])
+        @new_representative=Donor.find_by(id:params[:representative_id],is_area_representative:true)
+        for i in @old_representative.donators
+            i.area_representative=@new_representative
+        end
+        @old_representative.is_area_representative=false
+        @old_representative.save
+        if @new_representative.save
+            render json: @new_representative,serializer:RepresentativeSerializer,include:['donators.donor_user','donor_user','donor_subscription'],status: :ok
+        else
+            render json: @new_representative.errors,status: :ok
+        end
+    end
+    def settle_payment
+        @payment=Payment.find(params[:id])
+        @payment.settled=true
+        if @payment.save
+            render json: @payment,status: :ok
+        else
+            render json: @payment.errors,stats: :ok
         end
     end
     private
@@ -111,5 +205,8 @@ class Api::V1::DonorsController < ApplicationController
     end
     def search
         Donor.joins(:donor_user).where(["name LIKE ? or email LIKE ? or phonenumber LIKE ? or donor_reg_no LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%"]).paginate(page:params[:page],per_page:params[:limit])
+    end
+    def payment_params
+        params.require(:payment).permit(:mode,:is_one_time_payment,:transaction_id,:settled,:amount)
     end
 end

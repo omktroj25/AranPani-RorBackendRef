@@ -4,5 +4,9 @@ class FamilyHistory < ApplicationRecord
 
     belongs_to :head,class_name: 'Donor',foreign_key: :donor_id
     belongs_to :subscription
-    has_many :payments
+    has_many :payments,autosave:true
+    before_save :update_count
+    def update_count
+        self.count=self.donors.length
+    end
 end

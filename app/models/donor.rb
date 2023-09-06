@@ -6,8 +6,8 @@ class Donor < ApplicationRecord
     # has_one :head,class_name: 'Family',foreign_key: :head_id
     # has_one :family_history
     has_one :donor_subscription,autosave:true
-    has_many :payments,foreign_key: :area_representative_id
-    has_many :payments,foreign_key: :donor_id
+    has_many :payments,foreign_key: :area_representative_id,autosave:true
+    has_many :payments,foreign_key: :donor_id,autosave:true
 
     has_many :donors_family_histories
     has_many :family_histories,through: :donors_family_histories
