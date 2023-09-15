@@ -7,6 +7,9 @@ class User < ApplicationRecord
   enum role: [:admin,:user]
   validates :email, uniqueness:true,format: URI::MailTo::EMAIL_REGEXP,on: :create
   accepts_nested_attributes_for :permissions,reject_if: :check_existing_scope
+
+  scope :search,->(params){where(["username LIKE ? or email LIKE ? or phonenumber LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%"])}
+  
   def self.authenticate(email, password)
     user = User.find_for_authentication(email: email)
     user&.valid_password?(password) ? user : nil

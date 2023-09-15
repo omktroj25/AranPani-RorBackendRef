@@ -10,26 +10,23 @@ Rails.application.routes.draw do
         member do
           put :subscription
           put :deactivate
-          put :promote_rep
           put :demote_rep
-          get :payments,to: 'donors#get_payments'
-          post :payments,to: 'donors#add_payment'
+          get :payments,to: 'payments#get_payments'
+          post :payments,to: 'payments#add_payment'
         end
-        put "payments/:id",to: 'donors#settle_payment'
+        put "payments/:id",to: 'payments#settle_payment'
+        put "projects/:id",to: 'donors#subscribe_project'
         collection do 
-          get :find
+          get :find,to: 'meta/donors#find'
         end
-        resources :members,only:[:create,:index,:destroy] do
-          member do
-            put :promote_head
-            put :promote_donor
-          end
-      end
+        resources :members,only:[:create,:index,:destroy,:update]
     end
+
       resources :projects,only:[:index,:create,:show,:update] do
         member do
-          put :scrap
-          put :restore
+          post :project_documents
+          post :project_activity
+          post :project_images
         end
       end
       resources :payments,only:[:index,:create,:show]
@@ -42,6 +39,9 @@ Rails.application.routes.draw do
           post :reset
         end
       end
+      get 'dashboard_stats',to: 'dashboards#dashboard_stats'
+      get 'donor_stats',to: 'dashboards#donor_stats'
+      get 'donation_stats',to: 'dashboards#donation_stats'
     end
   end
   devise_for :users

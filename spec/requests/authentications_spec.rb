@@ -20,8 +20,22 @@ RSpec.describe "Authentications", type: :request do
       expect(@response).to have_key("access_token")
       expect(@response).to have_key("refresh_token")
     end
+    it "validating via invalid login credentials" do
+      post oauth_token_path,params:
+      {
+          "grant_type":"password",
+          "email":"ranjithvel2001@gmail.com",
+          "password":"12345678",
+          "client_id":application.uid,
+          "client_secret":application.secret
+      
+      }
+      expect(response).to have_http_status(400)
+      @response=JSON.parse(response.body)
+      expect(@response["error"]).to eq("invalid_grant")
+    end
   end
-  describe "POST /oauth.revoke" do
+  describe "POST /oauth/revoke" do
     it "validating the logout" do
       post oauth_revoke_path,headers:{"Authorization":"Bearer "+access_token.token},params:{"client_id":application.uid,"client_secret":application.secret,"token":access_token.token}
       expect(response).to have_http_status(200)

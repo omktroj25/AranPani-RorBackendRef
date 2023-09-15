@@ -3,5 +3,5 @@ class Subscription < ApplicationRecord
     has_many :families
     has_many :family_histories
     has_many :donor_subscriptions
-    has_many :donor_subscription_histories
+    has_many :payments
 end

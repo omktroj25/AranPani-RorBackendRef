@@ -12,20 +12,16 @@ class Api::V1::PasswordController < ApplicationController
     end
     def reset
         @token=params[:id]
-        if @token.present?
-            @user=User.find_by(reset_password_token:@token)
-            if @user.present? && @user.reset_password_token_valid?
-                if @user.reset_password!(params[:password])
-                    render json: {status:"success"},status: :ok
-                else
-                    render json: @user.errors,status: :unprocessable_entity
-                end
+        return render json: {status:"Token is missing"},status: :unprocessable_entity if !@token.present?
+        @user=User.find_by(reset_password_token:@token)
+        if @user.present? && @user.reset_password_token_valid?
+            if @user.reset_password!(params[:password])
+                render json: {status:"success"},status: :ok
             else
-                render json: {status:"Link not valid or expired"},status: :unprocessable_entity
+                render json: @user.errors,status: :unprocessable_entity
             end
         else
-            render json: {status:"Token is missing"},status: :unprocessable_entity
+            render json: {status:"Link not valid or expired"},status: :unprocessable_entity
         end
-
     end
 end

@@ -7,6 +7,6 @@ class DonorPaymentSerializer < ActiveModel::Serializer
     end
   end
   def donor_user
-    ActiveModel::SerializableResource.new(object.donor_user,  each_serializer: DonorUserSerializer)
+    ActiveModelSerializers::SerializableResource.new(object.donor_user,  each_serializer: DonorUserSerializer)
   end
 end

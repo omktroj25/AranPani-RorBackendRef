@@ -10,23 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_31_074343) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_06_130236) do
   create_table "activities", force: :cascade do |t|
     t.integer "project_id", null: false
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_activities_on_project_id"
-  end
-
-  create_table "donor_subscription_histories", force: :cascade do |t|
-    t.integer "donor_subscription_id"
-    t.integer "subscription_id"
-    t.datetime "last_paid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["donor_subscription_id"], name: "index_donor_subscription_histories_on_donor_subscription_id"
-    t.index ["subscription_id"], name: "index_donor_subscription_histories_on_subscription_id"
   end
 
   create_table "donor_subscriptions", force: :cascade do |t|
@@ -155,14 +145,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_074343) do
     t.integer "donor_id"
     t.integer "area_representative_id"
     t.integer "family_history_id"
-    t.integer "donor_subscription_history_id"
     t.boolean "settled"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "subscription_id"
     t.index ["area_representative_id"], name: "index_payments_on_area_representative_id"
     t.index ["donor_id"], name: "index_payments_on_donor_id"
-    t.index ["donor_subscription_history_id"], name: "index_payments_on_donor_subscription_history_id"
     t.index ["family_history_id"], name: "index_payments_on_family_history_id"
+    t.index ["subscription_id"], name: "index_payments_on_subscription_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -203,6 +193,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_074343) do
     t.integer "expensed_amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "sequence_generators", force: :cascade do |t|
@@ -238,8 +230,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_074343) do
   end
 
   add_foreign_key "activities", "projects"
-  add_foreign_key "donor_subscription_histories", "donor_subscriptions"
-  add_foreign_key "donor_subscription_histories", "subscriptions"
   add_foreign_key "donor_subscriptions", "donors"
   add_foreign_key "donor_subscriptions", "subscriptions"
   add_foreign_key "donor_users", "donors"
@@ -252,7 +242,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_074343) do
   add_foreign_key "family_histories", "donors"
   add_foreign_key "family_histories", "subscriptions"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
-  add_foreign_key "payments", "donor_subscription_histories"
   add_foreign_key "payments", "donors"
   add_foreign_key "payments", "donors", column: "area_representative_id"
   add_foreign_key "payments", "family_histories"

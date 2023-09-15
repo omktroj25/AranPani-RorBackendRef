@@ -3,7 +3,7 @@ class RepresentativeSerializer < ActiveModel::Serializer
   has_one :donor_user
   has_one :donor_subscription
   attribute :group_head,if: :has_group?
-  has_many :donators
+  has_many :donators,if: ->{scope}
   def donor_subscription
     object.donor_subscription if object.donor_subscription.present?
   end

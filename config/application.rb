@@ -22,6 +22,10 @@ module Aranpanai
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    config.api_only = true
+    config.api_only = true# create a logger with a file as a logging target
+    config.logger = Logger.new('log/important.log')
+    # set the minimum log level
+    config.log_level = :debug
+
   end
 end

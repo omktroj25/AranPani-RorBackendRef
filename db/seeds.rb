@@ -13,15 +13,13 @@ end
 if User.count == 0
     User.create(email:"ranjithvel2001@gmail.com",password:"123456789",username:"ranjith",phonenumber:"9842840700",status:true,role:User.roles[:admin])
 end
-if Subscription.count == 0
-    Subscription.create(plan:Subscription.plans[:Monthly],amount:100,no_of_months:"1 month",status:true)
-    Subscription.create(plan:Subscription.plans[:Quarterly],amount:300,no_of_months:"3 months",status:true)
-    Subscription.create(plan:Subscription.plans[:HalfYearly],amount:600,no_of_months:"6 months",status:true)
-    Subscription.create(plan:Subscription.plans[:Yearly],amount:1200,no_of_months:"12 months",status:true)
-end
-if SequenceGenerator.count==0
-    SequenceGenerator.create(model:"donor",seq_no:1111)
-    SequenceGenerator.create(model:"project",seq_no:2222)
-end
+Subscription.find_or_create_by(plan:Subscription.plans[:Monthly],amount:100,no_of_months:"1 month",status:true)
+Subscription.find_or_create_by(plan:Subscription.plans[:Quarterly],amount:300,no_of_months:"3 months",status:true)
+Subscription.find_or_create_by(plan:Subscription.plans[:HalfYearly],amount:600,no_of_months:"6 months",status:true)
+Subscription.find_or_create_by(plan:Subscription.plans[:Yearly],amount:1200,no_of_months:"12 months",status:true)
+
+SequenceGenerator.find_or_create_by(model:"donor",seq_no:1111)
+SequenceGenerator.find_or_create_by(model:"project",seq_no:2222)
+
 
 

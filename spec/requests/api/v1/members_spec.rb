@@ -5,19 +5,19 @@ RSpec.describe "Api::V1::Members", type: :request do
   let!(:application) {create:doorkeeper_application}
   let!(:access_token) {create:doorkeeper_access_token,resource_owner_id:user.id,application:application}
   let(:donor1) {create:donor,role:Donor.roles[:group_head]}
-  
   let!(:donor_user1) {create:donor_user,donor:donor1}
-  
-  let!(:seq) {create:sequence_generator}
-  let!(:subscription) {create:subscription}
-  let!(:subscription2) {create:subscription,no_of_months:3,amount:300}
-  let!(:family) {build:family,head:donor1}
   let!(:donor3) {create:donor}
   let!(:donor_user3) {create:donor_user,phonenumber:"2222222222",donor:donor3}
   let(:donor2) {create:donor,role:Donor.roles[:group_member]}
   let!(:donor_user2) {create:donor_user,phonenumber:"98282178278",donor:donor2}
-  # let(:donor4) {create:donor}
-  # let!(:donor_user4) {create:donor_user,phonenumber:"4444444444444444444",donor:donor4}
+  
+  let!(:seq) {create:sequence_generator}
+
+  let!(:subscription) {create:subscription}
+  let!(:subscription2) {create:subscription,no_of_months:3,amount:300}
+
+  let!(:family) {build:family,head:donor1}
+
   before(:each) do
         family.donors.push(donor1)
         family.donors.push(donor2)
@@ -67,10 +67,9 @@ RSpec.describe "Api::V1::Members", type: :request do
   end
   describe "PUT /promote_head" do
     it "promotes the group member to be the group head" do
-      put promote_head_api_v1_donor_member_path(donor1.id,donor2.id),headers:{"Authorization":"Bearer "+access_token.token}
+      put api_v1_donor_member_path(donor1.id,donor2.id),headers:{"Authorization":"Bearer "+access_token.token},params:{"role":"group_head"}
       expect(response).to have_http_status(200)
       @response=JSON.parse(response.body)
-      # debugger
       expect(@response["head"]["id"]).to eq(donor2.id)
       expect(Donor.find(donor1.id).role).to eq("group_member")
       expect(Donor.find(donor2.id).role).to eq("group_head")
@@ -78,7 +77,7 @@ RSpec.describe "Api::V1::Members", type: :request do
   end
   describe "PUT /promote_donor" do
     it "promotes the group member to be the individual donor" do
-      put promote_donor_api_v1_donor_member_path(donor1.id,donor2.id),headers:{"Authorization":"Bearer "+access_token.token}
+      put api_v1_donor_member_path(donor1.id,donor2.id),headers:{"Authorization":"Bearer "+access_token.token},params:{"role":"individual_donor"}
       expect(response).to have_http_status(200)
       @response=JSON.parse(response.body)
       expect(Donor.find(donor2.id)["role"]).to eq("individual_donor")
