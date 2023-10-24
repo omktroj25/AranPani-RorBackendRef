@@ -1,0 +1,2796 @@
+{
+	"info": {
+		"_postman_id": "b716bb33-0513-4146-b4b2-33a4104fc86e",
+		"name": "Aranpanai",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29252740"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "cgUqoRJss7YXzK0c-DmgejaftbfUFoweSbdsFw-1cdQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phonenumber\": \"9842840700\",\n    \"status\": true,\n    \"email\": \"ranjithvel@gmail.com\",\n    \"username\": \"ranjith\",\n    \"permissions\": [\n        \"Projects\",\n        \"Payments\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/internal_users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"internal_users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer shjshjahsjhajshjahsjhajshjashj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phonenumber\": \"9842840700\",\n    \"status\": true,\n    \"email\": \"ranjithvel2001@gmail.com\",\n    \"username\": \"ranjith\",\n    \"permissions\": [\n        \"projects\",\n        \"payments\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/internal-users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"internal-users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"status\":\"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "oTi0W9D1eO8rbRHZF5ZJKLMrHjY_WQ35OjkXk-E5jB4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/internal_users?search=&page=1&limit=50",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"internal_users"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/internal-users?page=1&search=\"hello\"",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"internal-users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "\"hello\""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 2,\n    \"mobile_number\": \"8122338989\",\n    \"email\": \"aranpanitrust@gmail.com\",\n    \"username\": \"Aranpani User\",\n    \"status\": true,\n    \"role\": \"user\",\n    \"permissions\": [\n      \"projects\",\n      \"donors\",\n      \"payments\",\n      \"representative\"\n    ]\n  },\n  {\n   \"id\": 3,\n    \"mobile_number\": \"8122338989\",\n    \"email\": \"aranpanitrust@gmail.com\",\n    \"username\": \"Aranpani User\",\n    \"status\": true,\n    \"role\": \"user\",\n    \"permissions\": [\n      \"projects\",\n      \"donors\",\n      \"payments\",\n      \"representative\"\n    ]   \n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "D8N21H_kBjTikpan2Bc5jZWQjcZc9-Tybvo19Mt1aRs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 15,\n    \"email\": \"vishal@gmail.com\",\n    \"username\": \"vishal\",\n    \"phonenumber\": \"9842840700\",\n    \"status\": true,\n    \"role\": \"user\",\n     \"permissions_attributes\": [\n        {\n            \"scope\": \"Donors\"\n        },\n        {\n            \"scope\": \"Payments\"\n        },\n        {\n            \"scope\":\"Projects\"\n        }\n    ]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/internal_users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"internal_users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "15"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer ahsjahsjhajsjas",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phonenumber\": \"9842840700\",\n    \"status\": true,\n    \"email\": \"ranjithvel2001@gmail.com\",\n    \"username\": \"ranjith\",\n    \"permissions\": [\n        \"projects\",\n        \"payments\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/internal-users/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"internal-users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"phonenumber\": \"9842840700\",\n    \"status\": true,\n    \"email\": \"ranjithvel2001@gmail.com\",\n    \"username\": \"ranjith\",\n    \"permissions\": [\n        \"projects\",\n        \"payments\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "SMhQTVSIugdkVICAT0YNEJNNr6JRnnRiZLHo3Sx9zEo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/internal_users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"internal_users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "localhost:3000/api/v1/internal-users/:id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer sdsdksjdkskdjskdjk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/internal-users/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"internal-users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/internal_users/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"internal_users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription",
+			"item": [
+				{
+					"name": "Subscriptions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "SMhQTVSIugdkVICAT0YNEJNNr6JRnnRiZLHo3Sx9zEo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/subscriptions",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"subscriptions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Subscriptions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer jdskjdksjdkjskdjskdjksjdksdjkk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:3000/api/v1/subscriptions",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"subscriptions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"plan\": \"monthly\",\n    \"amount\": 100,\n    \"status\": true,\n    \"no_of_months\": \"1 Month\",\n    \"total_subscibers\": 10923\n  },\n  {\n    \"id\": 2,\n    \"plan\": \"quarterly\",\n    \"amount\": 300,\n    \"status\": false,\n    \"no_of_months\": \"3 Months\",\n    \"total_subscibers\": 22\n  },\n  {\n    \"id\": 3,\n    \"plan\": \"half yearly\",\n    \"amount\": 600,\n    \"status\": true,\n    \"no_of_months\": \"6 Months\",\n    \"total_subscibers\": 37\n  },\n  {\n    \"id\": 4,\n    \"plan\": \"annual\",\n    \"amount\": 1200,\n    \"status\": true,\n    \"no_of_months\": \"12 Months\",\n    \"total_subscibers\": 49\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/subscriptions/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"subscriptions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/subscriptions/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"subscriptions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"plan\": \"monthly\",\n    \"amount\": 100,\n    \"status\": false,\n    \"no_of_months\": \"1 Month\",\n    \"total_subscibers\": 10923\n  }"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Donors",
+			"item": [
+				{
+					"name": "Family",
+					"item": [
+						{
+							"name": "members",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id/members",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id",
+										"members"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "members",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/api/v1/donors/:id/members",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"v1",
+												"donors",
+												":id",
+												"members"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "[\n        {\n            \"id\": 10378,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        },\n        {\n            \"id\": 10379,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        }\n\n]"
+								}
+							]
+						},
+						{
+							"name": "Add member",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "COi0uAdDOUB4ppXn43lPRgQxkYlGvc_TfL-_MqW81rc",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 6\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:donor_id/members",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":donor_id",
+										"members"
+									],
+									"variable": [
+										{
+											"key": "donor_id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Add member",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"phonenumber\":\"94898493483\",\n    \"name\":\"sanjay\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:3000/api/v1/donors/:id/members",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"v1",
+												"donors",
+												":id",
+												"members"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "[\n        {\n            \"id\": 10378,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        },\n        {\n            \"id\": 10379,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        },\n        {\n            \"id\":10380,\n            \"group_id\":15689,\n            \"user_type\":\"Donor\",\n            \"user_id\":2134,\n            \"name\":\"sanjay\",\n            \"phonenumber\":\"94898493483\",\n            \"role\":\"group_member\"\n        }\n\n]"
+								}
+							]
+						},
+						{
+							"name": "Delete a member",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "kfd8c5ppacx2C6XfJlxS_QTLkZECrBA_4TZU_SyCD4o",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:donor_id/members/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":donor_id",
+										"members",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "donor_id",
+											"value": "6"
+										},
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Delete member",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/api/v1/donors/:id/members/:member_id",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"v1",
+												"donors",
+												":id",
+												"members",
+												":member_id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												},
+												{
+													"key": "member_id",
+													"value": null
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "[\n        {\n            \"id\": 10378,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        },\n        {\n            \"id\": 10379,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        }\n\n]"
+								}
+							]
+						},
+						{
+							"name": "Promote as individual donor",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "a0aTGBIHivR4LhL2O-LQ2UvLRyDlwA_3K3IO0qGLh2M",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:donor_id/members/:id/promote_donor",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":donor_id",
+										"members",
+										":id",
+										"promote_donor"
+									],
+									"variable": [
+										{
+											"key": "donor_id",
+											"value": "2"
+										},
+										{
+											"key": "id",
+											"value": "7"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Promote as individual donor",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/api/v1/donors/:id/members/:member_id/promote-donor",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"v1",
+												"donors",
+												":id",
+												"members",
+												":member_id",
+												"promote-donor"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												},
+												{
+													"key": "member_id",
+													"value": null
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"donor\":{\n        \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_id\": \n        {\n            \"subscription_id\": 3,\n            \"status\":true,\n            \"last_paid\":null\n        },\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\"\n    },\n     \"group_head\":{\n        \"donor_id\":231,\n        \"phonenumber\":\"78178278127\",\n        \"name\":\"Ranjith\",\n        \"area_representative_id\":89\n    },\n    \"group\":[\n        {\n            \"id\": 10378,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        },\n        {\n            \"id\": 10379,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Promote as group head",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "wvYEW8J67i81DgvpUA_nGX3CrIzAmpbWHXvvj0flCWw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:donor_id/members/:id/promote_head",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":donor_id",
+										"members",
+										":id",
+										"promote_head"
+									],
+									"variable": [
+										{
+											"key": "donor_id",
+											"value": "8"
+										},
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Promote as group head",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "localhost:3000/api/v1/donors/:id/members/:member_id/promote-head",
+											"host": [
+												"localhost"
+											],
+											"port": "3000",
+											"path": [
+												"api",
+												"v1",
+												"donors",
+												":id",
+												"members",
+												":member_id",
+												"promote-head"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": null
+												},
+												{
+													"key": "member_id",
+													"value": null
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [],
+									"cookie": [],
+									"body": "{\n    \"donor\":{\n        \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_id\": \n        {\n            \"subscription_id\": 3,\n            \"status\":true,\n            \"last_paid\":null\n        },\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\"\n    },\n    \"group_head\":{\n        \"donor_id\":231,\n        \"phonenumber\":\"78178278127\",\n        \"name\":\"Ranjith\",\n        \"area_representative_id\":89\n    },\n    \"group_members\":[\n        {\n            \"id\": 10378,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        },\n        {\n            \"id\": 10379,\n            \"group_id\": 15689,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21969,\n            \"name\": \"Ranjith\",\n            \"phonenumber\": \"9842840700\",\n            \"role\": \"group_member\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6lMwnhIdpYYPvfkt8Uj-BUEAfcZ56EztQ2KhE6HiJRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"donor_user_attributes\": {\n        \"phonenumber\": \"122121122\",\n        \"name\": \"Aaakash\",\n        \"email\": \"aakash@gmail.com\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true,\n        \"latitude\": 12.960094,\n        \"longitude\": 80.236024\n    },\n    \"donor_subscription_attributes\": {\n        \"subscription_id\": 1,\n        \"last_updated\": true\n    },\n    \"is_area_representative\": false,\n    \"status\": true,\n    \"role\": \"individual_donor\",\n    \"area_representative_id\":9\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/donors",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer sjdhjsdksdkdhjsh",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_attributes\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_attributes\": [\n        {\n            \"subscription_id\": 3,\n            \"last_paid\":null\n        }\n    ],\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/donors",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_id\": \n        {\n            \"subscription_id\": 3,\n            \"status\":true,\n            \"last_paid\":null\n        },\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_attributes\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_attributes\": [\n        {\n            \"subscription_id\": 3,\n            \"last_paid\":null\n        }\n    ],\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_attributes\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_attributes\": [\n        {\n            \"subscription_id\": 3,\n            \"last_paid\":null\n        }\n    ],\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_id\": {\n        \"subscription_id\": 3,\n        \"status\": true,\n        \"last_paid\": null,\n        \"last_updated\":false\n    },\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "6lMwnhIdpYYPvfkt8Uj-BUEAfcZ56EztQ2KhE6HiJRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subscription_id\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update subscription",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subscription_id\":3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id/subscription",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id",
+										"subscription"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_id\": {\n        \"subscription_id\": 3,\n        \"status\": true,\n        \"last_paid\": null\n    },\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"individual_donor\",\n    \"family_id\":null\n}"
+						},
+						{
+							"name": "Update subscription as family head",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"subscription_id\":2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id/subscription",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id",
+										"subscription"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"donor_subscription_id\": {\n        \"subscription_id\": 3,\n        \"status\": true,\n        \"last_paid\": null\n    },\n    \"is_area_representative\": false,\n    \"area_representative_id\": 36,\n    \"status\": true,\n    \"role\": \"Group_head\",\n    \"family_id\":{\n        \"id\":1,\n        \"head_id\":3,\n        \"subscription_id\":2,\n        \"last_updated\":true,\n        \"count\":3,\n        \"last_paid\":null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Deactivate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "e3yVNiBIMFtqrsIDZHMeypAWFcxetSP6NVn6GKKKJpo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deactivate",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id/deactivate",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id",
+										"deactivate"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"status\":\"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "kfd8c5ppacx2C6XfJlxS_QTLkZECrBA_4TZU_SyCD4o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donors?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donors?page=1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n    \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"status\": true,\n    \"role\": \"individual_donor\"\n\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Find donor via mobile number",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phonenumber\":\"9842840700\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/find",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								"find"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Promote as Area Representative",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id/promote_rep",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id",
+								"promote_rep"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Demote area representative",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"representative_id\":23\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id/demote_rep",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id",
+								"demote_rep"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Demote area representative",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"alternate_representative_id\":23\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/representatives/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"representatives",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"status\":\"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Donor payments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id/payments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id",
+								"payments"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe a project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:donor_id/projects/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":donor_id",
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "donor_id",
+									"value": null
+								},
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Area Representative",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/representatives?page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"representatives"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/representatives?page=1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"representatives"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n    {\n    \"user_id\": {\n        \"phonenumber\": \"9842940700\",\n        \"name\": \"Vishal\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"gender\": \"male\",\n        \"age\": 21,\n        \"pan\": \"sdsd234434\",\n        \"id_card_value\": \"32392378vv\",\n        \"id_card\": \"Aadhar\",\n        \"address\": \"dsdsadsd dsd\",\n        \"pincode\": \"638183\",\n        \"is_onboarded\": true\n    },\n    \"status\": true,\n    \"role\": \"individual_donor\",\n    \"is_area_representative\":true\n\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get representative details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/representatives/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"representatives",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get representative details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/representatives/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"representatives",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"month_donations\":8923,\n    \"online_donations\":4345,\n    \"offline_doantions\":83298,\n    \"pending ampount from rep\":2918,\n    \"net paid amount\":8299,\n      \"id\": 21210,\n  \"mobile_number\": \"9790088794\",\n  \"username\": \"aathi chozhan\",\n  \"role_name\": \"group_member\",\n  \"guardian_name\": null,\n  \"email\": \"\",\n  \"address_line1\": \"25, kaveri nagar, tnt garments opp, 15-velampalayam\",\n  \"address_line2\": null,\n  \"lat\": null,\n  \"long\": null,\n  \"pincode\": null,\n  \"reg_number\": \"DAA10433\",\n  \"profile_pic_url\": null,\n  \"status\": true,\n  \"representative\": {\n    \"id\": 11016,\n    \"mobile_number\": \"9500908411\",\n    \"isd_code\": \"+91\",\n    \"username\": \"jagajothy\",\n    \"role_id\": 3,\n    \"role_name\": \"representative\",\n    \"guardian_name\": \"siva\",\n    \"email\": \"\",\n    \"address_line1\": \"home 10 avenue, 401/2, cheran colony road, sevanthampalayam\",\n    \"address_line2\": \"\",\n    \"lat\": 11.1038143,\n    \"long\": 77.3102053,\n    \"pincode\": \"641404\",\n    \"reg_number\": \"DAA11111\",\n    \"profile_pic_url\": null,\n    \"status\": true,\n    \"group_head\": null,\n    \"group_subscription_scheme\": null,\n    \"member_group_details\": null,\n    \"donor_subscription_scheme\": {\n      \"id\": 10982,\n      \"subscription_scheme_id\": 4,\n      \"name\": \"annual\",\n      \"amount\": 1200,\n      \"status\": true\n    },\n    \"payment_details\": null,\n    \"profile_completion_status\": \"subscription_plan\",\n    \"head\": true,\n    \"total_contributions\": 8100,\n    \"total_contributions_current_yr\": 8100,\n    \"group\": {\n      \"id\": 11076,\n      \"members\": [\n        {\n          \"id\": 6685,\n          \"group_id\": 11076,\n          \"user_type\": \"Donor\",\n          \"user_id\": 21143,\n          \"username\": \"mithu kottes\",\n          \"mobile_number\": \"7373712403\",\n          \"isd_code\": \"+91\",\n          \"role\": \"group_member\",\n          \"reg_number\": \"DAA10366\"\n        },\n        {\n          \"id\": 6778,\n          \"group_id\": 11076,\n          \"user_type\": \"Contributor\",\n          \"user_id\": 5348,\n          \"username\": \"Madhankumar\",\n          \"mobile_number\": null,\n          \"isd_code\": null,\n          \"role\": null,\n          \"reg_number\": null\n        },\n        {\n          \"id\": 6779,\n          \"group_id\": 11076,\n          \"user_type\": \"Contributor\",\n          \"user_id\": 5349,\n          \"username\": \"Preethi\",\n          \"mobile_number\": null,\n          \"isd_code\": null,\n          \"role\": null,\n          \"reg_number\": null\n        },\n        {\n          \"id\": 6780,\n          \"group_id\": 11076,\n          \"user_type\": \"Contributor\",\n          \"user_id\": 5350,\n          \"username\": \"Thiyan\",\n          \"mobile_number\": null,\n          \"isd_code\": null,\n          \"role\": null,\n          \"reg_number\": null\n        },\n        {\n          \"id\": 6781,\n          \"group_id\": 11076,\n          \"user_type\": \"Contributor\",\n          \"user_id\": 5351,\n          \"username\": \"Kaviya\",\n          \"mobile_number\": null,\n          \"isd_code\": null,\n          \"role\": null,\n          \"reg_number\": null\n        },\n        {\n          \"id\": 6782,\n          \"group_id\": 11076,\n          \"user_type\": \"Contributor\",\n          \"user_id\": 5352,\n          \"username\": \"Venkatesh\",\n          \"mobile_number\": null,\n          \"isd_code\": null,\n          \"role\": null,\n          \"reg_number\": null\n        }\n      ],\n      \"group_head\": {\n        \"id\": 11016,\n        \"mobile_number\": \"9500908411\",\n        \"isd_code\": \"+91\",\n        \"username\": \"jagajothy\",\n        \"profile_pic_url\": null,\n        \"status\": true,\n        \"representative\": {\n          \"id\": 11016,\n          \"email\": \"\",\n          \"username\": \"jagajothy\",\n          \"otp\": \"1234\",\n          \"expires_at\": \"2022-02-27T22:06:58.773+05:30\",\n          \"mobile_number\": \"9500908411\",\n          \"address_line1\": \"home 10 avenue, 401/2, cheran colony road, sevanthampalayam\",\n          \"address_line2\": \"\",\n          \"isd_code\": \"+91\",\n          \"pincode\": \"641404\",\n          \"lat\": 11.1038143,\n          \"long\": 77.3102053,\n          \"reg_number\": \"DAA11111\",\n          \"status\": true,\n          \"created_at\": \"2022-02-27T08:20:01.877+05:30\",\n          \"updated_at\": \"2022-03-07T17:47:53.927+05:30\",\n          \"provider\": \"mobile_number\",\n          \"uid\": \"+919500908411\",\n          \"role_id\": 3,\n          \"profile_pic\": {\n            \"url\": null\n          },\n          \"guardian_name\": \"siva\",\n          \"district\": null,\n          \"representative_id\": 11016,\n          \"deleted_at\": null,\n          \"profile_completion_status\": \"subscription_plan\",\n          \"country_id\": 2,\n          \"state_id\": 1,\n          \"city_id\": 588,\n          \"pan\": null,\n          \"gender_id\": 2,\n          \"identification_card_id\": 1,\n          \"identification_card_value\": \"123412341234\",\n          \"age\": 60,\n          \"is_legacy_data\": true\n        }\n      }\n    },\n    \"project_subscribers\": [],\n    \"donor_home_projects\": []\n  },\n  \"group_head\": {\n    \"id\": 13978,\n    \"mobile_number\": \"9047484472\",\n    \"isd_code\": \"+91\",\n    \"username\": \"athiyan\",\n    \"role_id\": 1,\n    \"role_name\": \"donor\",\n    \"guardian_name\": null,\n    \"email\": \"\",\n    \"address_line1\": \"5/947, neelakaadu raja nagar, pichampalayam pudhur\",\n    \"address_line2\": null,\n    \"lat\": null,\n    \"long\": null,\n    \"pincode\": null,\n    \"reg_number\": \"DAA03201\",\n    \"profile_pic_url\": null,\n    \"status\": true,\n    \"representative\": {\n      \"id\": 11016,\n      \"mobile_number\": \"9500908411\",\n      \"isd_code\": \"+91\",\n      \"username\": \"jagajothy\",\n      \"role_id\": 3,\n      \"role_name\": \"representative\",\n      \"guardian_name\": \"siva\",\n      \"email\": \"\",\n      \"address_line1\": \"home 10 avenue, 401/2, cheran colony road, sevanthampalayam\",\n      \"address_line2\": \"\",\n      \"lat\": 11.1038143,\n      \"long\": 77.3102053,\n      \"pincode\": \"641404\",\n      \"reg_number\": \"DAA11111\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"group_head\": null,\n      \"group_subscription_scheme\": null,\n      \"member_group_details\": null,\n      \"donor_subscription_scheme\": {\n        \"id\": 10982,\n        \"subscription_scheme_id\": 4,\n        \"name\": \"annual\",\n        \"amount\": 1200,\n        \"status\": true\n      },\n      \"payment_details\": null,\n      \"profile_completion_status\": \"subscription_plan\",\n      \"head\": true,\n      \"total_contributions\": 8100,\n      \"total_contributions_current_yr\": 8100,\n      \"group\": {\n        \"id\": 11076,\n        \"members\": [\n          {\n            \"id\": 6685,\n            \"group_id\": 11076,\n            \"user_type\": \"Donor\",\n            \"user_id\": 21143,\n            \"username\": \"mithu kottes\",\n            \"mobile_number\": \"7373712403\",\n            \"isd_code\": \"+91\",\n            \"role\": \"group_member\",\n            \"reg_number\": \"DAA10366\"\n          },\n          {\n            \"id\": 6778,\n            \"group_id\": 11076,\n            \"user_type\": \"Contributor\",\n            \"user_id\": 5348,\n            \"username\": \"Madhankumar\",\n            \"mobile_number\": null,\n            \"isd_code\": null,\n            \"role\": null,\n            \"reg_number\": null\n          },\n          {\n            \"id\": 6779,\n            \"group_id\": 11076,\n            \"user_type\": \"Contributor\",\n            \"user_id\": 5349,\n            \"username\": \"Preethi\",\n            \"mobile_number\": null,\n            \"isd_code\": null,\n            \"role\": null,\n            \"reg_number\": null\n          },\n          {\n            \"id\": 6780,\n            \"group_id\": 11076,\n            \"user_type\": \"Contributor\",\n            \"user_id\": 5350,\n            \"username\": \"Thiyan\",\n            \"mobile_number\": null,\n            \"isd_code\": null,\n            \"role\": null,\n            \"reg_number\": null\n          },\n          {\n            \"id\": 6781,\n            \"group_id\": 11076,\n            \"user_type\": \"Contributor\",\n            \"user_id\": 5351,\n            \"username\": \"Kaviya\",\n            \"mobile_number\": null,\n            \"isd_code\": null,\n            \"role\": null,\n            \"reg_number\": null\n          },\n          {\n            \"id\": 6782,\n            \"group_id\": 11076,\n            \"user_type\": \"Contributor\",\n            \"user_id\": 5352,\n            \"username\": \"Venkatesh\",\n            \"mobile_number\": null,\n            \"isd_code\": null,\n            \"role\": null,\n            \"reg_number\": null\n          }\n        ],\n        \"group_head\": {\n          \"id\": 11016,\n          \"mobile_number\": \"9500908411\",\n          \"isd_code\": \"+91\",\n          \"username\": \"jagajothy\",\n          \"profile_pic_url\": null,\n          \"status\": true,\n          \"representative\": {\n            \"id\": 11016,\n            \"email\": \"\",\n            \"username\": \"jagajothy\",\n            \"otp\": \"1234\",\n            \"expires_at\": \"2022-02-27T22:06:58.773+05:30\",\n            \"mobile_number\": \"9500908411\",\n            \"address_line1\": \"home 10 avenue, 401/2, cheran colony road, sevanthampalayam\",\n            \"address_line2\": \"\",\n            \"isd_code\": \"+91\",\n            \"pincode\": \"641404\",\n            \"lat\": 11.1038143,\n            \"long\": 77.3102053,\n            \"reg_number\": \"DAA11111\",\n            \"status\": true,\n            \"created_at\": \"2022-02-27T08:20:01.877+05:30\",\n            \"updated_at\": \"2022-03-07T17:47:53.927+05:30\",\n            \"provider\": \"mobile_number\",\n            \"uid\": \"+919500908411\",\n            \"role_id\": 3,\n            \"profile_pic\": {\n              \"url\": null\n            },\n            \"guardian_name\": \"siva\",\n            \"district\": null,\n            \"representative_id\": 11016,\n            \"deleted_at\": null,\n            \"profile_completion_status\": \"subscription_plan\",\n            \"country_id\": 2,\n            \"state_id\": 1,\n            \"city_id\": 588,\n            \"pan\": null,\n            \"gender_id\": 2,\n            \"identification_card_id\": 1,\n            \"identification_card_value\": \"123412341234\",\n            \"age\": 60,\n            \"is_legacy_data\": true\n          }\n        }\n      },\n      \"project_subscribers\": [],\n      \"donor_home_projects\": []\n    },\n    \"group_head\": null,\n    \"group_subscription_scheme\": null,\n    \"member_group_details\": null,\n    \"donor_subscription_scheme\": {\n      \"id\": 13944,\n      \"subscription_scheme_id\": 1,\n      \"name\": \"monthly\",\n      \"amount\": 100,\n      \"status\": true\n    },\n    \"payment_details\": null,\n    \"profile_completion_status\": null,\n    \"head\": true,\n    \"total_contributions\": 6000,\n    \"total_contributions_current_yr\": 6000,\n    \"pan\": null,\n    \"paid_status\": false,\n    \"paid_status_for_donor\": false,\n    \"identification_card_value\": null,\n    \"age\": null,\n    \"city\": {\n      \"id\": 588,\n      \"name\": \"tiruppur\",\n      \"state_id\": 1\n    },\n    \"state\": {\n      \"id\": 1,\n      \"name\": \"tamilnadu\",\n      \"country_id\": 2\n    },\n    \"country\": {\n      \"id\": 2,\n      \"name\": \"india\"\n    },\n    \"gender\": null,\n    \"identification_card\": null,\n    \"group\": {\n      \"id\": 14038,\n      \"members\": [\n        {\n          \"id\": 6682,\n          \"group_id\": 14038,\n          \"user_type\": \"Donor\",\n          \"user_id\": 21140,\n          \"username\": \"sagunthala\",\n          \"mobile_number\": \"7200824999\",\n          \"isd_code\": \"+91\",\n          \"role\": \"group_member\",\n          \"reg_number\": \"DAA10363\"\n        },\n        {\n          \"id\": 6830,\n          \"group_id\": 14038,\n          \"user_type\": \"Donor\",\n          \"user_id\": 21210,\n          \"username\": \"aathi chozhan\",\n          \"mobile_number\": \"9790088794\",\n          \"isd_code\": \"+91\",\n          \"role\": \"group_member\",\n          \"reg_number\": \"DAA10433\"\n        },\n        {\n          \"id\": 6878,\n          \"group_id\": 14038,\n          \"user_type\": \"Donor\",\n          \"user_id\": 21234,\n          \"username\": \"sarankumar\",\n          \"mobile_number\": \"9865236884\",\n          \"isd_code\": \"+91\",\n          \"role\": \"group_member\",\n          \"reg_number\": \"DAA10457\"\n        }\n      ],\n      \"group_head\": {\n        \"id\": 13978,\n        \"mobile_number\": \"9047484472\",\n        \"isd_code\": \"+91\",\n        \"username\": \"athiyan\",\n        \"profile_pic_url\": null,\n        \"status\": true,\n        \"representative\": {\n          \"id\": 11016,\n          \"email\": \"\",\n          \"username\": \"jagajothy\",\n          \"otp\": \"1234\",\n          \"expires_at\": \"2022-02-27T22:06:58.773+05:30\",\n          \"mobile_number\": \"9500908411\",\n          \"address_line1\": \"home 10 avenue, 401/2, cheran colony road, sevanthampalayam\",\n          \"address_line2\": \"\",\n          \"isd_code\": \"+91\",\n          \"pincode\": \"641404\",\n          \"lat\": 11.1038143,\n          \"long\": 77.3102053,\n          \"reg_number\": \"DAA11111\",\n          \"status\": true,\n          \"created_at\": \"2022-02-27T08:20:01.877+05:30\",\n          \"updated_at\": \"2022-03-07T17:47:53.927+05:30\",\n          \"provider\": \"mobile_number\",\n          \"uid\": \"+919500908411\",\n          \"role_id\": 3,\n          \"profile_pic\": {\n            \"url\": null\n          },\n          \"guardian_name\": \"siva\",\n          \"district\": null,\n          \"representative_id\": 11016,\n          \"deleted_at\": null,\n          \"profile_completion_status\": \"subscription_plan\",\n          \"country_id\": 2,\n          \"state_id\": 1,\n          \"city_id\": 588,\n          \"pan\": null,\n          \"gender_id\": 2,\n          \"identification_card_id\": 1,\n          \"identification_card_value\": \"123412341234\",\n          \"age\": 60,\n          \"is_legacy_data\": true\n        }\n      }\n    },\n    \"project_subscribers\": [],\n    \"donor_home_projects\": []\n  },\n  \"group_subscription_scheme\": {\n    \"id\": 13944,\n    \"donor_id\": 13978,\n    \"subscription_scheme_id\": 1,\n    \"subscription_scheme_name\": \"monthly\",\n    \"subscription_scheme_amount\": 100,\n    \"pending_for_current_yr\": null,\n    \"total_contributions\": 6000,\n    \"total_contributions_current_yr\": 6000\n  },\n  \"member_group_details\": {\n    \"id\": 14038,\n    \"members\": [\n      {\n        \"id\": 6682,\n        \"group_id\": 14038,\n        \"user_type\": \"Donor\",\n        \"user_id\": 21140,\n        \"username\": \"sagunthala\",\n        \"mobile_number\": \"7200824999\",\n        \"isd_code\": \"+91\",\n        \"role\": \"group_member\",\n        \"reg_number\": \"DAA10363\"\n      },\n      {\n        \"id\": 6830,\n        \"group_id\": 14038,\n        \"user_type\": \"Donor\",\n        \"user_id\": 21210,\n        \"username\": \"aathi chozhan\",\n        \"mobile_number\": \"9790088794\",\n        \"isd_code\": \"+91\",\n        \"role\": \"group_member\",\n        \"reg_number\": \"DAA10433\"\n      },\n      {\n        \"id\": 6878,\n        \"group_id\": 14038,\n        \"user_type\": \"Donor\",\n        \"user_id\": 21234,\n        \"username\": \"sarankumar\",\n        \"mobile_number\": \"9865236884\",\n        \"isd_code\": \"+91\",\n        \"role\": \"group_member\",\n        \"reg_number\": \"DAA10457\"\n      }\n    ],\n    \"group_head\": {\n      \"id\": 13978,\n      \"mobile_number\": \"9047484472\",\n      \"isd_code\": \"+91\",\n      \"username\": \"athiyan\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"representative\": {\n        \"id\": 11016,\n        \"email\": \"\",\n        \"username\": \"jagajothy\",\n        \"otp\": \"1234\",\n        \"expires_at\": \"2022-02-27T22:06:58.773+05:30\",\n        \"mobile_number\": \"9500908411\",\n        \"address_line1\": \"home 10 avenue, 401/2, cheran colony road, sevanthampalayam\",\n        \"address_line2\": \"\",\n        \"isd_code\": \"+91\",\n        \"pincode\": \"641404\",\n        \"lat\": 11.1038143,\n        \"long\": 77.3102053,\n        \"reg_number\": \"DAA11111\",\n        \"status\": true,\n        \"created_at\": \"2022-02-27T08:20:01.877+05:30\",\n        \"updated_at\": \"2022-03-07T17:47:53.927+05:30\",\n        \"provider\": \"mobile_number\",\n        \"uid\": \"+919500908411\",\n        \"role_id\": 3,\n        \"profile_pic\": {\n          \"url\": null\n        },\n        \"guardian_name\": \"siva\",\n        \"district\": null,\n        \"representative_id\": 11016,\n        \"deleted_at\": null,\n        \"profile_completion_status\": \"subscription_plan\",\n        \"country_id\": 2,\n        \"state_id\": 1,\n        \"city_id\": 588,\n        \"pan\": null,\n        \"gender_id\": 2,\n        \"identification_card_id\": 1,\n        \"identification_card_value\": \"123412341234\",\n        \"age\": 60,\n        \"is_legacy_data\": true\n      }\n    },\n    \"group_donor_contributors\": [\n      {\n        \"id\": 6682,\n        \"group_id\": 14038,\n        \"user_type\": \"Donor\",\n        \"user_id\": 21140,\n        \"username\": \"sagunthala\",\n        \"mobile_number\": \"7200824999\",\n        \"isd_code\": \"+91\",\n        \"role\": \"group_member\",\n        \"reg_number\": \"DAA10363\"\n      },\n      {\n        \"id\": 6830,\n        \"group_id\": 14038,\n        \"user_type\": \"Donor\",\n        \"user_id\": 21210,\n        \"username\": \"aathi chozhan\",\n        \"mobile_number\": \"9790088794\",\n        \"isd_code\": \"+91\",\n        \"role\": \"group_member\",\n        \"reg_number\": \"DAA10433\"\n      },\n      {\n        \"id\": 6878,\n        \"group_id\": 14038,\n        \"user_type\": \"Donor\",\n        \"user_id\": 21234,\n        \"username\": \"sarankumar\",\n        \"mobile_number\": \"9865236884\",\n        \"isd_code\": \"+91\",\n        \"role\": \"group_member\",\n        \"reg_number\": \"DAA10457\"\n      }\n    ]\n  },\n  \"donor_subscription_scheme\": null,\n  \"payment_details\": null,\n  \"profile_completion_status\": null,\n  \"head\": true,\n  \"total_contributions\": null,\n  \"total_contributions_current_yr\": 0,\n  \"pan\": null,\n  \"paid_status\": false,\n  \"paid_status_for_donor\": false,\n  \"identification_card_value\": null,\n  \"age\": null,\n  \"city\": {\n    \"id\": 588,\n    \"name\": \"tiruppur\",\n    \"state_id\": 1\n  },\n  \"state\": {\n    \"id\": 1,\n    \"name\": \"tamilnadu\",\n    \"country_id\": 2\n  },\n  \"country\": {\n    \"id\": 2,\n    \"name\": \"india\"\n  },\n  \"gender\": null,\n  \"identification_card\": null,\n  \"group\": {\n    \"id\": 21270,\n    \"members\": [],\n    \"group_head\": {\n      \"id\": 21210,\n      \"mobile_number\": \"9790088794\",\n      \"isd_code\": \"+91\",\n      \"username\": \"aathi chozhan\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"representative\": {\n        \"id\": 16,\n        \"email\": \"\",\n        \"username\": \"Varun_test\",\n        \"otp\": null,\n        \"expires_at\": null,\n        \"mobile_number\": \"9789977125\",\n        \"address_line1\": \"test\",\n        \"address_line2\": \"\",\n        \"isd_code\": \"+91\",\n        \"pincode\": \"600091\",\n        \"lat\": 12.9672832,\n        \"long\": 80.19920339999999,\n        \"reg_number\": \"DAA00016\",\n        \"status\": true,\n        \"created_at\": \"2021-12-25T13:15:33.177+05:30\",\n        \"updated_at\": \"2023-03-17T18:53:55.897+05:30\",\n        \"provider\": \"mobile_number\",\n        \"uid\": \"+919789977125\",\n        \"role_id\": 3,\n        \"profile_pic\": {\n          \"url\": null\n        },\n        \"guardian_name\": \"125\",\n        \"district\": \"null\",\n        \"representative_id\": null,\n        \"deleted_at\": null,\n        \"profile_completion_status\": \"subscription_plan\",\n        \"country_id\": null,\n        \"state_id\": null,\n        \"city_id\": null,\n        \"pan\": null,\n        \"gender_id\": 2,\n        \"identification_card_id\": 5,\n        \"identification_card_value\": null,\n        \"age\": 96,\n        \"is_legacy_data\": false\n      }\n    }\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Assign a Representative",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"donor_ids\": [\n        12,\n        43\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/representatives/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"representatives",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Collection of payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "90CrMjhuMZP0leEGxugCILXGgTNyL54b5hsBNA9NvPk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mode\":\"online\",\n    \"is_one_time_payment\":false,\n    \"transaction_id\":\"21829898\",\n    \"amount\":1200,\n    \"settled\":false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id/payments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id",
+								"payments"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Collection of payment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mode\":\"online\",\n    \"is_one_time_payment\":false,\n    \"transaction_id\":\"21829898\",\n    \"one_time_payment_donor_id\":null,\n    \"settled\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id/payments",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id",
+										"payments"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"mode\":\"online\",\n    \"is_one_time_payment\":false,\n    \"transaction_id\":\"21829898\",\n    \"one_time_payment_donor_id\":null,\n    \"collected\":true,\n    \"settled\":false,\n    \"family_history_id\":null,\n    \"donor_subscription_id\":{\n        \"id\":1,\n        \"donor_subscription_id\":34435,\n        \"subscription_id\":3,\n        \"last_paid\":\"current_date\"\n    },\n    \"area_representative_id\":344\n}"
+						}
+					]
+				},
+				{
+					"name": "Settlement of payment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donors/:id/payments/:payment_id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donors",
+								":id",
+								"payments",
+								":payment_id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								},
+								{
+									"key": "payment_id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Settlement of payment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id/payments/:payment_id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id",
+										"payments",
+										":payment_id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										},
+										{
+											"key": "payment_id",
+											"value": null
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"success\":true\n}"
+						}
+					]
+				},
+				{
+					"name": "One time payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "QVjDVxI6OBVVevF9d7nwXAFhNN9NiZYSTOhmdl9CA_g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"donor_user_attributes\": {\n        \"name\": \"Aaakash\",\n        \"age\": 21,\n        \"phonenumber\": \"0000000000\",\n        \"email\": \"aakash@gmail.com\",\n        \"guardian_name\": \"shjahjh\",\n        \"country\": \"india\",\n        \"pincode\": \"638183\",\n        \"address\": \"dsdsadsd dsd\",\n        \"gender\": \"male\",\n        \"id_card\": \"Aadhar\",\n        \"id_card_value\": \"32392378vv\",\n        \"pan\": \"sdsd234434\",\n        \"is_onboarded\": false\n    },\n    \"payments\": {\n        \"transaction_id\": \"189291fd\",\n        \"amount\": 90000,\n        \"is_one_time_payment\": true,\n        \"settled\": true,\n        \"mode\": \"online\"\n    },\n    \"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/payments",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "One time payment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mode\":\"online\",\n    \"is_one_time_payment\":true,\n    \"transaction_id\":\"21829898\",\n    \"one_time_payment_donor_id\":123,\n    \"one_time_payment_amount\":83982,\n    \"collected\":true,\n    \"settled\":false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/donors/:id/payments",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donors",
+										":id",
+										"payments"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"mode\":\"online\",\n    \"is_one_time_payment\":true,\n    \"transaction_id\":\"21829898\",\n    \"one_time_payment_donor_id\":8992,\n     \"one_time_payment_amount\":83982,\n    \"collected\":true,\n    \"settled\":true,\n    \"family_history_id\":null,\n    \"donor_subscription_id\":true,\n    \"area_representative_id\":344\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all one time Payments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "pln2jwRFKxQbQ0vs_LoFiea7wj8rtPv8FfKYjRANHMY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/payments?page=1&month=Sep&year=2023",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"payments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "month",
+									"value": "Sep"
+								},
+								{
+									"key": "year",
+									"value": "2023"
+								},
+								{
+									"key": "is_one_time_payment",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all One time Payments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/payments",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"payments"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 290159,\n    \"receipt_id\": \"2023000015\",\n    \"one_time_payment\": true,\n    \"status\": \"payment_completed\",\n    \"invoice_url\": \"https://storage.googleapis.com/aranpani-it-bucket/uploads/payment/invoice/290159/290159.pdf\",\n    \"pincode\": null,\n    \"amount\": 1212,\n    \"is_online\": null,\n    \"transaction_id\": \"1234567890\",\n    \"paid_by_rep\": true,\n    \"is_legacy_data\": false,\n    \"city\": null,\n    \"donor\": {\n      \"id\": 21946,\n      \"mobile_number\": \"9726647332\",\n      \"isd_code\": \"+91\",\n      \"username\": \"Training\",\n      \"role_id\": 1,\n      \"role_name\": \"donor\",\n      \"guardian_name\": \"Training\",\n      \"email\": \"\",\n      \"address_line1\": \"ede\",\n      \"address_line2\": null,\n      \"lat\": null,\n      \"long\": null,\n      \"pincode\": \"311211\",\n      \"reg_number\": \"DAA11270\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"representative\": {\n        \"id\": 21924,\n        \"mobile_number\": \"4567895444\",\n        \"isd_code\": \"+91\",\n        \"username\": \"436\",\n        \"role_id\": 3,\n        \"role_name\": \"representative\",\n        \"guardian_name\": null,\n        \"email\": \"\",\n        \"address_line1\": null,\n        \"address_line2\": null,\n        \"lat\": null,\n        \"long\": null,\n        \"pincode\": null,\n        \"reg_number\": \"DAA11248\",\n        \"profile_pic_url\": null,\n        \"status\": true,\n        \"group_head\": null,\n        \"group_subscription_scheme\": null,\n        \"member_group_details\": null,\n        \"donor_subscription_scheme\": null,\n        \"payment_details\": null,\n        \"profile_completion_status\": null,\n        \"head\": true,\n        \"total_contributions\": null,\n        \"total_contributions_current_yr\": 0,\n        \"group\": {\n          \"id\": 22003,\n          \"members\": [],\n          \"group_head\": {\n            \"id\": 21924,\n            \"mobile_number\": \"4567895444\",\n            \"isd_code\": \"+91\",\n            \"username\": \"436\",\n            \"profile_pic_url\": null,\n            \"status\": true,\n            \"representative\": {\n              \"id\": 40,\n              \"email\": \"hari@gmail.com\",\n              \"username\": \"hari\",\n              \"otp\": null,\n              \"expires_at\": null,\n              \"mobile_number\": \"9655294209\",\n              \"address_line1\": \"fgg\",\n              \"address_line2\": \"\",\n              \"isd_code\": \"+91\",\n              \"pincode\": \"641018\",\n              \"lat\": 11.0026711,\n              \"long\": 76.96803110000002,\n              \"reg_number\": \"DAA00055\",\n              \"status\": true,\n              \"created_at\": \"2021-12-28T17:22:57.788+05:30\",\n              \"updated_at\": \"2022-01-09T18:58:26.199+05:30\",\n              \"provider\": \"mobile_number\",\n              \"uid\": \"9655294209\",\n              \"role_id\": 3,\n              \"profile_pic\": {\n                \"url\": null\n              },\n              \"guardian_name\": \"fhj\",\n              \"district\": \"null\",\n              \"representative_id\": 1,\n              \"deleted_at\": null,\n              \"profile_completion_status\": \"subscription_plan\",\n              \"country_id\": null,\n              \"state_id\": null,\n              \"city_id\": null,\n              \"pan\": null,\n              \"gender_id\": null,\n              \"identification_card_id\": null,\n              \"identification_card_value\": null,\n              \"age\": null,\n              \"is_legacy_data\": false\n            }\n          }\n        },\n        \"project_subscribers\": [],\n        \"donor_home_projects\": []\n      },\n      \"group_head\": null,\n      \"group_subscription_scheme\": null,\n      \"member_group_details\": null,\n      \"donor_subscription_scheme\": {\n        \"id\": 21874,\n        \"subscription_scheme_id\": 3,\n        \"name\": \"half yearly\",\n        \"amount\": 600,\n        \"status\": true\n      },\n      \"payment_details\": null,\n      \"profile_completion_status\": null,\n      \"head\": null,\n      \"total_contributions\": 0,\n      \"total_contributions_current_yr\": 1235,\n      \"pan\": \"1234567890\",\n      \"paid_status\": false,\n      \"paid_status_for_donor\": false,\n      \"identification_card_value\": \"123456543\",\n      \"age\": 12\n    },\n    \"contributor\": null,\n    \"representative\": null,\n    \"payment_transactions\": [\n      {\n        \"id\": 164362,\n        \"amount\": 1212,\n        \"status\": \"SUCCESS\",\n        \"transaction_id\": \"1234567890\",\n        \"payment_mode\": null,\n        \"cashfree_order_id\": null,\n        \"created_at\": \"2023-08-07T09:31:26.786+05:30\"\n      }\n    ],\n    \"payment_group_members\": []\n  },\n  {\n    \"id\": 290158,\n    \"receipt_id\": \"2023000014\",\n    \"one_time_payment\": true,\n    \"status\": \"payment_completed\",\n    \"invoice_url\": \"https://storage.googleapis.com/aranpani-it-bucket/uploads/payment/invoice/290158/290158.pdf\",\n    \"pincode\": null,\n    \"amount\": 12,\n    \"is_online\": null,\n    \"transaction_id\": \"1234567890\",\n    \"paid_by_rep\": true,\n    \"is_legacy_data\": false,\n    \"city\": null,\n    \"donor\": {\n      \"id\": 21946,\n      \"mobile_number\": \"9726647332\",\n      \"isd_code\": \"+91\",\n      \"username\": \"Training\",\n      \"role_id\": 1,\n      \"role_name\": \"donor\",\n      \"guardian_name\": \"Training\",\n      \"email\": \"\",\n      \"address_line1\": \"ede\",\n      \"address_line2\": null,\n      \"lat\": null,\n      \"long\": null,\n      \"pincode\": \"311211\",\n      \"reg_number\": \"DAA11270\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"representative\": {\n        \"id\": 21924,\n        \"mobile_number\": \"4567895444\",\n        \"isd_code\": \"+91\",\n        \"username\": \"436\",\n        \"role_id\": 3,\n        \"role_name\": \"representative\",\n        \"guardian_name\": null,\n        \"email\": \"\",\n        \"address_line1\": null,\n        \"address_line2\": null,\n        \"lat\": null,\n        \"long\": null,\n        \"pincode\": null,\n        \"reg_number\": \"DAA11248\",\n        \"profile_pic_url\": null,\n        \"status\": true,\n        \"group_head\": null,\n        \"group_subscription_scheme\": null,\n        \"member_group_details\": null,\n        \"donor_subscription_scheme\": null,\n        \"payment_details\": null,\n        \"profile_completion_status\": null,\n        \"head\": true,\n        \"total_contributions\": null,\n        \"total_contributions_current_yr\": 0,\n        \"group\": {\n          \"id\": 22003,\n          \"members\": [],\n          \"group_head\": {\n            \"id\": 21924,\n            \"mobile_number\": \"4567895444\",\n            \"isd_code\": \"+91\",\n            \"username\": \"436\",\n            \"profile_pic_url\": null,\n            \"status\": true,\n            \"representative\": {\n              \"id\": 40,\n              \"email\": \"hari@gmail.com\",\n              \"username\": \"hari\",\n              \"otp\": null,\n              \"expires_at\": null,\n              \"mobile_number\": \"9655294209\",\n              \"address_line1\": \"fgg\",\n              \"address_line2\": \"\",\n              \"isd_code\": \"+91\",\n              \"pincode\": \"641018\",\n              \"lat\": 11.0026711,\n              \"long\": 76.96803110000002,\n              \"reg_number\": \"DAA00055\",\n              \"status\": true,\n              \"created_at\": \"2021-12-28T17:22:57.788+05:30\",\n              \"updated_at\": \"2022-01-09T18:58:26.199+05:30\",\n              \"provider\": \"mobile_number\",\n              \"uid\": \"9655294209\",\n              \"role_id\": 3,\n              \"profile_pic\": {\n                \"url\": null\n              },\n              \"guardian_name\": \"fhj\",\n              \"district\": \"null\",\n              \"representative_id\": 1,\n              \"deleted_at\": null,\n              \"profile_completion_status\": \"subscription_plan\",\n              \"country_id\": null,\n              \"state_id\": null,\n              \"city_id\": null,\n              \"pan\": null,\n              \"gender_id\": null,\n              \"identification_card_id\": null,\n              \"identification_card_value\": null,\n              \"age\": null,\n              \"is_legacy_data\": false\n            }\n          }\n        },\n        \"project_subscribers\": [],\n        \"donor_home_projects\": []\n      },\n      \"group_head\": null,\n      \"group_subscription_scheme\": null,\n      \"member_group_details\": null,\n      \"donor_subscription_scheme\": {\n        \"id\": 21874,\n        \"subscription_scheme_id\": 3,\n        \"name\": \"half yearly\",\n        \"amount\": 600,\n        \"status\": true\n      },\n      \"payment_details\": null,\n      \"profile_completion_status\": null,\n      \"head\": null,\n      \"total_contributions\": 0,\n      \"total_contributions_current_yr\": 1235,\n      \"pan\": \"1234567890\",\n      \"paid_status\": false,\n      \"paid_status_for_donor\": false,\n      \"identification_card_value\": \"123456543\",\n      \"age\": 12\n    },\n    \"contributor\": null,\n    \"representative\": null,\n    \"payment_transactions\": [\n      {\n        \"id\": 164361,\n        \"amount\": 12,\n        \"status\": \"SUCCESS\",\n        \"transaction_id\": \"1234567890\",\n        \"payment_mode\": null,\n        \"cashfree_order_id\": null,\n        \"created_at\": \"2023-08-03T14:59:03.931+05:30\"\n      }\n    ],\n    \"payment_group_members\": []\n  },\n  {\n    \"id\": 290157,\n    \"receipt_id\": \"2023000013\",\n    \"one_time_payment\": true,\n    \"status\": \"payment_completed\",\n    \"invoice_url\": null,\n    \"pincode\": null,\n    \"amount\": 11,\n    \"is_online\": null,\n    \"transaction_id\": \"1234567890\",\n    \"paid_by_rep\": true,\n    \"is_legacy_data\": false,\n    \"city\": null,\n    \"donor\": {\n      \"id\": 21946,\n      \"mobile_number\": \"9726647332\",\n      \"isd_code\": \"+91\",\n      \"username\": \"Training\",\n      \"role_id\": 1,\n      \"role_name\": \"donor\",\n      \"guardian_name\": \"Training\",\n      \"email\": \"\",\n      \"address_line1\": \"ede\",\n      \"address_line2\": null,\n      \"lat\": null,\n      \"long\": null,\n      \"pincode\": \"311211\",\n      \"reg_number\": \"DAA11270\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"representative\": {\n        \"id\": 21924,\n        \"mobile_number\": \"4567895444\",\n        \"isd_code\": \"+91\",\n        \"username\": \"436\",\n        \"role_id\": 3,\n        \"role_name\": \"representative\",\n        \"guardian_name\": null,\n        \"email\": \"\",\n        \"address_line1\": null,\n        \"address_line2\": null,\n        \"lat\": null,\n        \"long\": null,\n        \"pincode\": null,\n        \"reg_number\": \"DAA11248\",\n        \"profile_pic_url\": null,\n        \"status\": true,\n        \"group_head\": null,\n        \"group_subscription_scheme\": null,\n        \"member_group_details\": null,\n        \"donor_subscription_scheme\": null,\n        \"payment_details\": null,\n        \"profile_completion_status\": null,\n        \"head\": true,\n        \"total_contributions\": null,\n        \"total_contributions_current_yr\": 0,\n        \"group\": {\n          \"id\": 22003,\n          \"members\": [],\n          \"group_head\": {\n            \"id\": 21924,\n            \"mobile_number\": \"4567895444\",\n            \"isd_code\": \"+91\",\n            \"username\": \"436\",\n            \"profile_pic_url\": null,\n            \"status\": true,\n            \"representative\": {\n              \"id\": 40,\n              \"email\": \"hari@gmail.com\",\n              \"username\": \"hari\",\n              \"otp\": null,\n              \"expires_at\": null,\n              \"mobile_number\": \"9655294209\",\n              \"address_line1\": \"fgg\",\n              \"address_line2\": \"\",\n              \"isd_code\": \"+91\",\n              \"pincode\": \"641018\",\n              \"lat\": 11.0026711,\n              \"long\": 76.96803110000002,\n              \"reg_number\": \"DAA00055\",\n              \"status\": true,\n              \"created_at\": \"2021-12-28T17:22:57.788+05:30\",\n              \"updated_at\": \"2022-01-09T18:58:26.199+05:30\",\n              \"provider\": \"mobile_number\",\n              \"uid\": \"9655294209\",\n              \"role_id\": 3,\n              \"profile_pic\": {\n                \"url\": null\n              },\n              \"guardian_name\": \"fhj\",\n              \"district\": \"null\",\n              \"representative_id\": 1,\n              \"deleted_at\": null,\n              \"profile_completion_status\": \"subscription_plan\",\n              \"country_id\": null,\n              \"state_id\": null,\n              \"city_id\": null,\n              \"pan\": null,\n              \"gender_id\": null,\n              \"identification_card_id\": null,\n              \"identification_card_value\": null,\n              \"age\": null,\n              \"is_legacy_data\": false\n            }\n          }\n        },\n        \"project_subscribers\": [],\n        \"donor_home_projects\": []\n      },\n      \"group_head\": null,\n      \"group_subscription_scheme\": null,\n      \"member_group_details\": null,\n      \"donor_subscription_scheme\": {\n        \"id\": 21874,\n        \"subscription_scheme_id\": 3,\n        \"name\": \"half yearly\",\n        \"amount\": 600,\n        \"status\": true\n      },\n      \"payment_details\": null,\n      \"profile_completion_status\": null,\n      \"head\": null,\n      \"total_contributions\": 0,\n      \"total_contributions_current_yr\": 1235,\n      \"pan\": \"1234567890\",\n      \"paid_status\": false,\n      \"paid_status_for_donor\": false,\n      \"identification_card_value\": \"123456543\",\n      \"age\": 12\n    },\n    \"contributor\": null,\n    \"representative\": null,\n    \"payment_transactions\": [\n      {\n        \"id\": 164360,\n        \"amount\": 11,\n        \"status\": \"SUCCESS\",\n        \"transaction_id\": \"1234567890\",\n        \"payment_mode\": null,\n        \"cashfree_order_id\": null,\n        \"created_at\": \"2023-08-03T14:52:11.624+05:30\"\n      }\n    ],\n    \"payment_group_members\": []\n  },\n  {\n    \"id\": 290156,\n    \"receipt_id\": \"2023000012\",\n    \"one_time_payment\": true,\n    \"status\": \"payment_completed\",\n    \"invoice_url\": \"https://storage.googleapis.com/aranpani-it-bucket/uploads/payment/invoice/290156/290156.pdf\",\n    \"pincode\": null,\n    \"amount\": 12,\n    \"is_online\": null,\n    \"transaction_id\": \"123456789\",\n    \"paid_by_rep\": true,\n    \"is_legacy_data\": false,\n    \"city\": null,\n    \"donor\": {\n      \"id\": 21968,\n      \"mobile_number\": \"326647332\",\n      \"isd_code\": \"+91\",\n      \"username\": \"Tamilnadunadu\",\n      \"role_id\": 1,\n      \"role_name\": \"donor\",\n      \"guardian_name\": \"tamil\",\n      \"email\": \"\",\n      \"address_line1\": \"qwqwe\",\n      \"address_line2\": null,\n      \"lat\": null,\n      \"long\": null,\n      \"pincode\": \"123567\",\n      \"reg_number\": \"DAA11292\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"representative\": {\n        \"id\": 36,\n        \"mobile_number\": \"9566217273\",\n        \"isd_code\": \"+91\",\n        \"username\": \"Maadhini Sankar\",\n        \"role_id\": 3,\n        \"role_name\": \"representative\",\n        \"guardian_name\": \"Sankar N\",\n        \"email\": \"sharmilasankar16@gmail.com\",\n        \"address_line1\": \"No. 2B, Vinoth vivena, palvadi street extension, Nerkundram, Chennai\",\n        \"address_line2\": \"\",\n        \"lat\": 13.0708674,\n        \"long\": 80.18454229999998,\n        \"pincode\": \"600107\",\n        \"reg_number\": \"DAA00048\",\n        \"profile_pic_url\": null,\n        \"status\": true,\n        \"group_head\": null,\n        \"group_subscription_scheme\": null,\n        \"member_group_details\": null,\n        \"donor_subscription_scheme\": {\n          \"id\": 28,\n          \"subscription_scheme_id\": 1,\n          \"name\": \"monthly\",\n          \"amount\": 100,\n          \"status\": true\n        },\n        \"payment_details\": null,\n        \"profile_completion_status\": \"subscription_plan\",\n        \"head\": true,\n        \"total_contributions\": 0,\n        \"total_contributions_current_yr\": 1000,\n        \"group\": {\n          \"id\": 19,\n          \"members\": [\n            {\n              \"id\": 136,\n              \"group_id\": 19,\n              \"user_type\": \"Donor\",\n              \"user_id\": 145,\n              \"username\": \"maadhini_87\",\n              \"mobile_number\": \"9566217287\",\n              \"isd_code\": \"+91\",\n              \"role\": \"group_member\",\n              \"reg_number\": \"DAA00229\"\n            }\n          ],\n          \"group_head\": {\n            \"id\": 36,\n            \"mobile_number\": \"9566217273\",\n            \"isd_code\": \"+91\",\n            \"username\": \"Maadhini Sankar\",\n            \"profile_pic_url\": null,\n            \"status\": true,\n            \"representative\": {\n              \"id\": 35,\n              \"email\": \"varunragunathan@gmail.com\",\n              \"username\": \"Varun\",\n              \"otp\": \"1234\",\n              \"expires_at\": \"2022-02-27T11:59:43.923+05:30\",\n              \"mobile_number\": \"9789977120\",\n              \"address_line1\": \"Example address\",\n              \"address_line2\": \"\",\n              \"isd_code\": \"+91\",\n              \"pincode\": \"600091\",\n              \"lat\": 12.9672831,\n              \"long\": 80.19920200000001,\n              \"reg_number\": \"DAA11103\",\n              \"status\": true,\n              \"created_at\": \"2021-12-25T17:24:09.267+05:30\",\n              \"updated_at\": \"2023-07-09T16:17:20.655+05:30\",\n              \"provider\": \"mobile_number\",\n              \"uid\": \"+919789977120\",\n              \"role_id\": 3,\n              \"profile_pic\": {\n                \"url\": null\n              },\n              \"guardian_name\": \"raghunathan\",\n              \"district\": null,\n              \"representative_id\": 1,\n              \"deleted_at\": null,\n              \"profile_completion_status\": \"subscription_plan\",\n              \"country_id\": 2,\n              \"state_id\": 1,\n              \"city_id\": 1,\n              \"pan\": \"123456789\",\n              \"gender_id\": null,\n              \"identification_card_id\": null,\n              \"identification_card_value\": null,\n              \"age\": null,\n              \"is_legacy_data\": false\n            }\n          }\n        },\n        \"project_subscribers\": [],\n        \"donor_home_projects\": []\n      },\n      \"group_head\": null,\n      \"group_subscription_scheme\": null,\n      \"member_group_details\": null,\n      \"donor_subscription_scheme\": {\n        \"id\": 21891,\n        \"subscription_scheme_id\": 1,\n        \"name\": \"monthly\",\n        \"amount\": 100,\n        \"status\": true\n      },\n      \"payment_details\": null,\n      \"profile_completion_status\": null,\n      \"head\": true,\n      \"total_contributions\": 0,\n      \"total_contributions_current_yr\": 24,\n      \"pan\": \"1234567890\",\n      \"paid_status\": false,\n      \"paid_status_for_donor\": false,\n      \"identification_card_value\": \"1234567890\",\n      \"age\": 2121\n    },\n    \"contributor\": null,\n    \"representative\": null,\n    \"payment_transactions\": [\n      {\n        \"id\": 164359,\n        \"amount\": 12,\n        \"status\": \"SUCCESS\",\n        \"transaction_id\": \"123456789\",\n        \"payment_mode\": null,\n        \"cashfree_order_id\": null,\n        \"created_at\": \"2023-08-03T14:51:26.542+05:30\"\n      }\n    ],\n    \"payment_group_members\": []\n  },\n  {\n    \"id\": 290155,\n    \"receipt_id\": \"2023000011\",\n    \"one_time_payment\": true,\n    \"status\": \"payment_completed\",\n    \"invoice_url\": null,\n    \"pincode\": null,\n    \"amount\": 12,\n    \"is_online\": null,\n    \"transaction_id\": \"123456789\",\n    \"paid_by_rep\": true,\n    \"is_legacy_data\": false,\n    \"city\": null,\n    \"donor\": {\n      \"id\": 21968,\n      \"mobile_number\": \"326647332\",\n      \"isd_code\": \"+91\",\n      \"username\": \"Tamilnadunadu\",\n      \"role_id\": 1,\n      \"role_name\": \"donor\",\n      \"guardian_name\": \"tamil\",\n      \"email\": \"\",\n      \"address_line1\": \"qwqwe\",\n      \"address_line2\": null,\n      \"lat\": null,\n      \"long\": null,\n      \"pincode\": \"123567\",\n      \"reg_number\": \"DAA11292\",\n      \"profile_pic_url\": null,\n      \"status\": true,\n      \"representative\": {\n        \"id\": 36,\n        \"mobile_number\": \"9566217273\",\n        \"isd_code\": \"+91\",\n        \"username\": \"Maadhini Sankar\",\n        \"role_id\": 3,\n        \"role_name\": \"representative\",\n        \"guardian_name\": \"Sankar N\",\n        \"email\": \"sharmilasankar16@gmail.com\",\n        \"address_line1\": \"No. 2B, Vinoth vivena, palvadi street extension, Nerkundram, Chennai\",\n        \"address_line2\": \"\",\n        \"lat\": 13.0708674,\n        \"long\": 80.18454229999998,\n        \"pincode\": \"600107\",\n        \"reg_number\": \"DAA00048\",\n        \"profile_pic_url\": null,\n        \"status\": true,\n        \"group_head\": null,\n        \"group_subscription_scheme\": null,\n        \"member_group_details\": null,\n        \"donor_subscription_scheme\": {\n          \"id\": 28,\n          \"subscription_scheme_id\": 1,\n          \"name\": \"monthly\",\n          \"amount\": 100,\n          \"status\": true\n        },\n        \"payment_details\": null,\n        \"profile_completion_status\": \"subscription_plan\",\n        \"head\": true,\n        \"total_contributions\": 0,\n        \"total_contributions_current_yr\": 1000,\n        \"group\": {\n          \"id\": 19,\n          \"members\": [\n            {\n              \"id\": 136,\n              \"group_id\": 19,\n              \"user_type\": \"Donor\",\n              \"user_id\": 145,\n              \"username\": \"maadhini_87\",\n              \"mobile_number\": \"9566217287\",\n              \"isd_code\": \"+91\",\n              \"role\": \"group_member\",\n              \"reg_number\": \"DAA00229\"\n            }\n          ],\n          \"group_head\": {\n            \"id\": 36,\n            \"mobile_number\": \"9566217273\",\n            \"isd_code\": \"+91\",\n            \"username\": \"Maadhini Sankar\",\n            \"profile_pic_url\": null,\n            \"status\": true,\n            \"representative\": {\n              \"id\": 35,\n              \"email\": \"varunragunathan@gmail.com\",\n              \"username\": \"Varun\",\n              \"otp\": \"1234\",\n              \"expires_at\": \"2022-02-27T11:59:43.923+05:30\",\n              \"mobile_number\": \"9789977120\",\n              \"address_line1\": \"Example address\",\n              \"address_line2\": \"\",\n              \"isd_code\": \"+91\",\n              \"pincode\": \"600091\",\n              \"lat\": 12.9672831,\n              \"long\": 80.19920200000001,\n              \"reg_number\": \"DAA11103\",\n              \"status\": true,\n              \"created_at\": \"2021-12-25T17:24:09.267+05:30\",\n              \"updated_at\": \"2023-07-09T16:17:20.655+05:30\",\n              \"provider\": \"mobile_number\",\n              \"uid\": \"+919789977120\",\n              \"role_id\": 3,\n              \"profile_pic\": {\n                \"url\": null\n              },\n              \"guardian_name\": \"raghunathan\",\n              \"district\": null,\n              \"representative_id\": 1,\n              \"deleted_at\": null,\n              \"profile_completion_status\": \"subscription_plan\",\n              \"country_id\": 2,\n              \"state_id\": 1,\n              \"city_id\": 1,\n              \"pan\": \"123456789\",\n              \"gender_id\": null,\n              \"identification_card_id\": null,\n              \"identification_card_value\": null,\n              \"age\": null,\n              \"is_legacy_data\": false\n            }\n          }\n        },\n        \"project_subscribers\": [],\n        \"donor_home_projects\": []\n      },\n      \"group_head\": null,\n      \"group_subscription_scheme\": null,\n      \"member_group_details\": null,\n      \"donor_subscription_scheme\": {\n        \"id\": 21891,\n        \"subscription_scheme_id\": 1,\n        \"name\": \"monthly\",\n        \"amount\": 100,\n        \"status\": true\n      },\n      \"payment_details\": null,\n      \"profile_completion_status\": null,\n      \"head\": true,\n      \"total_contributions\": 0,\n      \"total_contributions_current_yr\": 24,\n      \"pan\": \"1234567890\",\n      \"paid_status\": false,\n      \"paid_status_for_donor\": false,\n      \"identification_card_value\": \"1234567890\",\n      \"age\": 2121\n    },\n    \"contributor\": null,\n    \"representative\": null,\n    \"payment_transactions\": [\n      {\n        \"id\": 164358,\n        \"amount\": 12,\n        \"status\": \"SUCCESS\",\n        \"transaction_id\": \"123456789\",\n        \"payment_mode\": null,\n        \"cashfree_order_id\": null,\n        \"created_at\": \"2023-08-03T14:51:17.127+05:30\"\n      }\n    ],\n    \"payment_group_members\": []\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "show one time payment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/payments/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/projects?page=1&status=proposed&search=arul",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "status",
+									"value": "proposed"
+								},
+								{
+									"key": "search",
+									"value": "arul"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Index",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/projects?page=1&status=proposed&search=arul",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"projects"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "status",
+											"value": "proposed"
+										},
+										{
+											"key": "search",
+											"value": "arul"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 304,\n    \"status\": \"proposed\",\n    \"reg_number\": \"TEM1690438886\",\n    \"name\": \"fgeru\",\n    \"start_date\": null,\n    \"end_date\": null,\n    \"incharge_name\": null,\n    \"incharge_mobile_number\": null,\n    \"expensed_amt\": null,\n    \"estimated_amt\": null,\n    \"temple_name_tamil\": null,\n    \"temple_incharge_name_tamil\": null,\n    \"location\": \"ihoihu\",\n    \"location_name_tamil\": null,\n    \"lat\": 0,\n    \"long\": 0,\n    \"completion\": null,\n    \"project_attachment_url\": null,\n    \"updated_at\": \"2023-07-27T11:51:26.154+05:30\",\n    \"created_at\": \"2023-07-27T11:51:26.154+05:30\",\n    \"activity\": [],\n    \"project_documents\": [],\n    \"project_subscribers\": []\n  },\n  {\n    \"id\": 303,\n    \"status\": \"proposed\",\n    \"reg_number\": \"TEM1690438755\",\n    \"name\": \"temp3112\",\n    \"start_date\": null,\n    \"end_date\": null,\n    \"incharge_name\": null,\n    \"incharge_mobile_number\": null,\n    \"expensed_amt\": null,\n    \"estimated_amt\": null,\n    \"temple_name_tamil\": null,\n    \"temple_incharge_name_tamil\": null,\n    \"location\": \"-\",\n    \"location_name_tamil\": null,\n    \"lat\": 0,\n    \"long\": 0,\n    \"completion\": null,\n    \"project_attachment_url\": null,\n    \"updated_at\": \"2023-07-27T11:49:15.911+05:30\",\n    \"created_at\": \"2023-07-27T11:49:15.911+05:30\",\n    \"activity\": [],\n    \"project_documents\": [\n      {\n        \"id\": 249,\n        \"document_url\": \"https://storage.googleapis.com/aranpani-it-bucket/uploads/project_document/document/249/Sample1.pdf\"\n      }\n    ],\n    \"project_subscribers\": []\n  },\n  {\n    \"id\": 30,\n    \"status\": \"proposed\",\n    \"reg_number\": \"TEM1675943942\",\n    \"name\": \"sjvcgvwgc\",\n    \"start_date\": null,\n    \"end_date\": null,\n    \"incharge_name\": \" dhcvhjvwc\",\n    \"incharge_mobile_number\": \"+918778159210\",\n    \"expensed_amt\": null,\n    \"estimated_amt\": null,\n    \"temple_name_tamil\": \"hbcvyifwhcfiwy\",\n    \"temple_incharge_name_tamil\": \"bwicvwycuw\",\n    \"location\": \"ygedfwiudvr\",\n    \"location_name_tamil\": \"7grc8cgfr7;\",\n    \"lat\": null,\n    \"long\": null,\n    \"completion\": null,\n    \"updated_at\": \"2023-02-09T17:29:02.296+05:30\",\n    \"created_at\": \"2023-02-09T17:29:02.296+05:30\",\n    \"project_documents\": [\n      {\n        \"id\": 235,\n        \"document_url\": \"https://storage.googleapis.com/aranpani-it-bucket/uploads/project_document/document/235/dummy.pdf\"\n      }\n    ],\n    \"project_subscribers\": []\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a project by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/projects/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a project by Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/projects/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"id\": 30,\n    \"status\": \"proposed\",\n    \"reg_number\": \"TEM1675943942\",\n    \"name\": \"sjvcgvwgc\",\n    \"start_date\": null,\n    \"end_date\": null,\n    \"incharge_name\": \" dhcvhjvwc\",\n    \"incharge_mobile_number\": \"+918778159210\",\n    \"expensed_amt\": null,\n    \"estimated_amt\": null,\n    \"temple_name_tamil\": \"hbcvyifwhcfiwy\",\n    \"temple_incharge_name_tamil\": \"bwicvwycuw\",\n    \"location\": \"ygedfwiudvr\",\n    \"location_name_tamil\": \"7grc8cgfr7;\",\n    \"lat\": null,\n    \"long\": null,\n    \"completion\": null,\n    \"updated_at\": \"2023-02-09T17:29:02.296+05:30\",\n    \"created_at\": \"2023-02-09T17:29:02.296+05:30\",\n    \"project_documents\": [\n      {\n        \"id\": 235,\n        \"document_url\": \"https://storage.googleapis.com/aranpani-it-bucket/uploads/project_document/document/235/dummy.pdf\"\n      }\n    ],\n    \"project_subscribers\": []\n  }"
+						}
+					]
+				},
+				{
+					"name": "Create a project",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "cAkM9-BIDrxwsgWOHaRPMH9DBnlgu5Y61Gb1wsSRo3c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"temple_name\":\"Arul temple\",\n    \"incharge_name\":\"Ranjith\",\n    \"phonenumber\":\"91919191919\",\n    \"location\":\"Erode\",\n    \"status\":\"Proposed\",\n    \"latitude\":12.977430,\n    \"longitude\":80.240226\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/projects",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/projects/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\":\"active\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/projects/:id",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"projects",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"id\": 30,\n    \"status\": \"proposed\",\n    \"reg_number\": \"TEM1675943942\",\n    \"name\": \"sjvcgvwgc\",\n    \"start_date\": null,\n    \"end_date\": null,\n    \"incharge_name\": \" dhcvhjvwc\",\n    \"incharge_mobile_number\": \"+918778159210\",\n    \"expensed_amt\": null,\n    \"estimated_amt\": null,\n    \"temple_name_tamil\": \"hbcvyifwhcfiwy\",\n    \"temple_incharge_name_tamil\": \"bwicvwycuw\",\n    \"location\": \"ygedfwiudvr\",\n    \"location_name_tamil\": \"7grc8cgfr7;\",\n    \"lat\": null,\n    \"long\": null,\n    \"completion\": null,\n    \"updated_at\": \"2023-02-09T17:29:02.296+05:30\",\n    \"created_at\": \"2023-02-09T17:29:02.296+05:30\",\n    \"project_documents\": [\n      {\n        \"id\": 235,\n        \"document_url\": \"https://storage.googleapis.com/aranpani-it-bucket/uploads/project_document/document/235/dummy.pdf\"\n      }\n    ],\n    \"project_subscribers\": []\n  }"
+						}
+					]
+				},
+				{
+					"name": "Add project documents",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/projects/:id/project_documents",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id",
+								"project_documents"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add project Activity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "cAkM9-BIDrxwsgWOHaRPMH9DBnlgu5Y61Gb1wsSRo3c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/projects/:id/project_activity",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id",
+								"project_activity"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Project images",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "cAkM9-BIDrxwsgWOHaRPMH9DBnlgu5Y61Gb1wsSRo3c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"image_url\":\"http://local_project_image\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/projects/:id/project_images",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"projects",
+								":id",
+								"project_images"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Dashboard stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/dashboard_stats",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"dashboard_stats"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Dashboard stats",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/dashboard-stats",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"dashboard-stats"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"project_stats\": {\n    \"proposed\": 28,\n    \"planned\": 73,\n    \"active\": 16,\n    \"completed\": 49,\n    \"scrapped\": 63\n  },\n  \"donor_stats\": {\n    \"total_donors\": 9914,\n    \"active\": 9911,\n    \"inactive\": 3\n  },\n  \"area_rep_stats\": {\n    \"total_donors\": 1081,\n    \"active\": 1081,\n    \"inactive\": 0\n  },\n  \"internal_users\": {\n    \"total_donors\": 9,\n    \"active\": 9,\n    \"inactive\": 0\n  }\n}"
+						}
+					]
+				},
+				{
+					"name": "Donor stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donor_stats",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donor_stats"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Donor stats",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donor-stats",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donor-stats"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "donation-stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/v1/donation_stats?year=2023",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"donation_stats"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2023"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "donation-stats",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/donation-stats?year=2021",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"donation-stats"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2021"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"donation_stats\": [\n    {\n      \"month\": \"August,2023\",\n      \"total_payment\": 1259,\n      \"online_payment\": 0,\n      \"offline_payment\": 0,\n      \"one_time_payment\": 1259\n    },\n    {\n      \"month\": \"June,2023\",\n      \"total_payment\": 5300,\n      \"online_payment\": 0,\n      \"offline_payment\": 5200,\n      \"one_time_payment\": 100\n    },\n    {\n      \"month\": \"March,2023\",\n      \"total_payment\": 19095,\n      \"online_payment\": 0,\n      \"offline_payment\": 0,\n      \"one_time_payment\": 19095\n    }\n  ],\n  \"total_donors\": 9914,\n  \"current_month_donations\": 1259,\n  \"total_donations_current_yr\": 25654\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"email\":\"ranjithvel2001@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/password/forgot",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"password",
+								"forgot"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Forgot Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n{\n    \"email\":\"ranjithvel2001@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/password/forgot",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"password",
+										"forgot"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"otp\":289128,\n    \"status\":\"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/v1/password/reset",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"password",
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"grant_type\":\"password\",\n    \"email\":\"ranjithvel2001@gmail.com\",\n    \"password\":\"12345678\",\n    \"client_id\":\"3FCjn-sLMTxiT_8uUHJGkaeM3PzDJ1ED2gnYd1KQ04c\",\n    \"client_secret\":\"8fZrqTsRPL-pXi4mtidYWSBwGDt1Tnep5X9RwrmsGLA\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Internal-user login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"grant_type\":\"password\",\n    \"email\":\"ompraksh@gmail.com\",\n    \"password\":\"123456789\",\n    \"client_id\":\"3FCjn-sLMTxiT_8uUHJGkaeM3PzDJ1ED2gnYd1KQ04c\",\n    \"client_secret\":\"8fZrqTsRPL-pXi4mtidYWSBwGDt1Tnep5X9RwrmsGLA\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

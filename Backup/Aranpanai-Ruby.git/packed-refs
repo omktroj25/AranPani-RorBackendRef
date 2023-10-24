@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+609d38cd70f9cc866f118fa1a029314572889a3a refs/heads/authentication
+27d7a319dd7927b7306bbaf9030d8a94d4b3084c refs/heads/develop
+27d7a319dd7927b7306bbaf9030d8a94d4b3084c refs/heads/donors
+7d48686693a89867285c3b6195a3803a8a5e3f3c refs/heads/main
+27d7a319dd7927b7306bbaf9030d8a94d4b3084c refs/heads/payments
